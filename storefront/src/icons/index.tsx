@@ -80,7 +80,7 @@ export function BackIcon({
 }
 
 export function ArrowDownIcon({
-  color = '#090909',
+  color = 'currentColor',
   size = 24,
   className = '',
 }: IconProps) {
@@ -105,7 +105,7 @@ export function ArrowDownIcon({
 }
 
 export function CartIcon({
-  color = '#090909',
+  color = 'currentColor',
   size = 24,
   className = '',
 }: IconProps) {
@@ -938,7 +938,7 @@ export function LikeIcon({
 }
 
 export function HeartIcon({
-  color = '#090909',
+  color = 'currentColor',
   size = 24,
   className = '',
 }: IconProps) {
@@ -1410,7 +1410,7 @@ export function NavigationIcon({
 }
 
 export function SearchIcon({
-  color = '#090909',
+  color = 'currentColor',
   size = 24,
   className = '',
 }: IconProps) {
@@ -1559,7 +1559,7 @@ export function SettingsIcon({
 }
 
 export function ProfileIcon({
-  color = '#090909',
+  color = 'currentColor',
   size = 24,
   className = '',
 }: IconProps) {
@@ -2014,7 +2014,7 @@ export function XIcon({
 }
 
 export function MessageIcon({
-  color = '#090909',
+  color = 'currentColor',
   size = 24,
   className = '',
 }: IconProps) {
