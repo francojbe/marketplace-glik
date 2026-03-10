@@ -15,29 +15,41 @@ export function BlogCard({ post, index }: BlogCardProps) {
     <LocalizedClientLink
       href={post.href}
       className={cn(
-        "group block border border-secondary p-1 rounded-sm relative",
-        index > 0 && "hidden lg:block"
+        "group flex flex-col bg-white border border-gray-100 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1",
+        index > 0 && "hidden lg:flex"
       )}
     >
-      <div className="relative overflow-hidden rounded-xs h-full">
+      <div className="relative overflow-hidden aspect-[16/10] w-full">
         <Image
           loading="lazy"
           sizes="(min-width: 1024px) 33vw, 100vw"
           src={decodeURIComponent(post.image)}
           alt={post.title}
-          width={467}
-          height={472}
-          className="object-cover max-h-[472px] h-full w-full"
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-110"
         />
+        <div className="absolute top-4 left-4 z-10">
+          <span className="bg-[#1b103c] text-[#00d4aa] text-[10px] font-black px-3 py-1.5 rounded-lg shadow-lg uppercase tracking-widest">
+            {post.category}
+          </span>
+        </div>
       </div>
-      <div className="p-4 bg-tertiary text-tertiary absolute bottom-0 left-1 lg:opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-b-xs w-[calc(100%-8px)]">
-        <h3 className="heading-sm">{post.title}</h3>
-        <p className="text-md line-clamp-2">{post.excerpt}</p>
-        <div className="flex items-center gap-4 uppercase label-md mt-[26px]">
-          Read more{" "}
+      <div className="p-6 flex flex-col justify-between flex-1">
+        <div>
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-[11px] font-bold text-gray-400 uppercase tracking-tighter">Por Glik</span>
+            <span className="w-1 h-1 rounded-full bg-gray-300"></span>
+            <span className="text-[11px] font-bold text-gray-400 uppercase tracking-tighter">hace 2 días</span>
+          </div>
+          <h3 className="text-xl font-black text-[#1b103c] mb-3 leading-tight group-hover:text-[#ec7b15] transition-colors">{post.title}</h3>
+          <p className="text-sm text-gray-500 line-clamp-3 leading-relaxed">{post.excerpt}</p>
+        </div>
+
+        <div className="flex items-center gap-2 text-[11px] font-black text-[#1b103c] uppercase tracking-[2px] mt-6 group-hover:gap-4 transition-all">
+          Leer más
           <ArrowRightIcon
-            size={20}
-            color={tailwindConfig.theme.extend.colors.tertiary}
+            size={14}
+            className="text-[#ec7b15]"
           />
         </div>
       </div>

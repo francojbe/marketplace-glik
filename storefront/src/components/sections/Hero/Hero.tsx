@@ -43,14 +43,23 @@ export const Hero = ({ image, heading, paragraph, buttons }: HeroProps) => {
             MARKETPLACE Nº1 EN CHILE
           </div>
 
-          <h1 className="font-black mb-6 text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1] drop-shadow-2xl text-balance">
-            {heading.split(' - ').map((part, i) => (
-              <span key={i} className={cn("block", i === 1 && "text-[#ec7b15] mt-2")}>{part}</span>
-            ))}
-          </h1>
+          <div className="animate-[fade-in-up_1s_ease-out]">
+            <h1 className="font-black mb-6 text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1] drop-shadow-2xl text-balance">
+              {heading.split(' - ').map((part, i) => (
+                <span key={i} className={cn("block", i === 1 && "text-[#ec7b15] mt-2")}>{part}</span>
+              ))}
+            </h1>
+          </div>
 
-          <p className="text-lg md:text-xl lg:text-2xl mb-12 font-medium text-gray-300 max-w-2xl leading-relaxed opacity-95">
-            {paragraph}
+          <p className="text-lg md:text-xl lg:text-2xl mb-12 font-medium text-gray-300 max-w-2xl leading-relaxed opacity-95 animate-[fade-in-up_1.2s_ease-out]">
+            {paragraph.split('Glik garante').map((text, i, arr) => (
+              <React.Fragment key={i}>
+                {text}
+                {i < arr.length - 1 && (
+                  <span className="text-[#00d4aa] font-black underline decoration-2 underline-offset-4">Glik garante</span>
+                )}
+              </React.Fragment>
+            ))}
           </p>
 
           {buttons.length > 0 && (
@@ -92,6 +101,10 @@ export const Hero = ({ image, heading, paragraph, buttons }: HeroProps) => {
         @keyframes ken-burns {
           from { transform: scale(1); }
           to { transform: scale(1.15) translate(1%, 1%); }
+        }
+        @keyframes fade-in-up {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
         }
       `}</style>
     </section>

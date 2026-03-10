@@ -3,52 +3,42 @@ import LocalizedClientLink from "@/components/molecules/LocalizedLink/LocalizedL
 import { ArrowRightIcon } from "@/icons"
 import { Style } from "@/types/styles"
 
-export const styles: Style[] = [
-  {
-    id: 1,
-    name: "STREET / NAKED",
-    href: "/categories/street",
-  },
-  {
-    id: 2,
-    name: "ADVENTURE",
-    href: "/categories/adventure",
-  },
-  {
-    id: 3,
-    name: "SCOOTER",
-    href: "/categories/scooters",
-  },
-  {
-    id: 4,
-    name: "DEPORTIVAS",
-    href: "/categories/sport",
-  },
-  {
-    id: 5,
-    name: "CRUISER",
-    href: "/categories/cruiser",
-  },
+const stylesWithDetails = [
+  { id: 1, name: "STREET / NAKED", href: "/categories/naked", icon: "🏍️", count: 48 },
+  { id: 2, name: "ADVENTURE", href: "/categories/trail", icon: "🏔️", count: 32 },
+  { id: 3, name: "SCOOTER", href: "/categories/scooter", icon: "🛵", count: 56 },
+  { id: 4, name: "DEPORTIVAS", href: "/categories/sport", icon: "🏎️", count: 24 },
+  { id: 5, name: "CRUISER", href: "/categories/custom", icon: "🦅", count: 18 },
 ]
 
 export function ShopByStyleSection() {
   return (
     <section className="bg-primary container">
-      <h2 className="heading-lg text-primary mb-12 uppercase">Encuentra Tu Estilo</h2>
-      <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
-        <div className="py-[52px] px-[58px] h-full border rounded-sm">
-          {styles.map((style) => (
+      <div className="flex items-end justify-between mb-12">
+        <h2 className="heading-lg text-primary uppercase leading-none">Encuentra Tu Estilo</h2>
+        <LocalizedClientLink href="/categories/motos" className="text-sm font-bold text-[#ec7b15] hover:underline underline-offset-4 uppercase tracking-widest">Ver todo el catálogo</LocalizedClientLink>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
+          {stylesWithDetails.map((style) => (
             <LocalizedClientLink
               key={style.id}
               href={style.href}
-              className="group flex items-center gap-4 text-primary hover:text-[#00d4aa] transition-colors border-b border-transparent hover:border-[#00d4aa] w-fit pb-2 mb-8"
+              className="group relative flex flex-col justify-end p-8 border rounded-2xl h-[200px] overflow-hidden bg-gray-50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-gray-100"
             >
-              <span className="heading-lg font-bold">{style.name}</span>
-              <ArrowRightIcon className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-[#00d4aa]" />
+              <div className="absolute top-6 right-6 text-4xl opacity-20 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500 transform grayscale group-hover:grayscale-0">
+                {style.icon}
+              </div>
+              <div className="relative z-10">
+                <h3 className="heading-sm font-black transition-all duration-300 group-hover:text-[#ec7b15] group-hover:scale-105 origin-left">{style.name}</h3>
+                <p className="text-xs font-bold text-gray-400 mt-1 uppercase tracking-tighter">{style.count} motos disponibles</p>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent group-hover:from-[#1b103c]/5 transition-all duration-500"></div>
             </LocalizedClientLink>
           ))}
         </div>
-        <div className="relative hidden w-full lg:flex justify-center items-center h-full p-10 bg-gray-50 border rounded-sm">
+        <div className="relative hidden w-full lg:flex justify-center items-center h-full p-10 bg-gradient-to-br from-gray-50 to-white border rounded-[2rem] overflow-hidden group/main overflow-hidden">
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5"></div>
           <Image
             loading="lazy"
             fetchPriority="high"
@@ -56,7 +46,7 @@ export function ShopByStyleSection() {
             alt="Motos para todos los estilos"
             width={700}
             height={600}
-            className="object-contain w-[80%] drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+            className="relative z-10 object-contain w-[85%] drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] group-hover/main:scale-105 transition-transform duration-700 ease-out"
           />
         </div>
       </div>

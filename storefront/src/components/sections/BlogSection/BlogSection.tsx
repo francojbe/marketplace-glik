@@ -4,30 +4,30 @@ import { BlogCard } from '@/components/organisms';
 export const blogPosts: BlogPost[] = [
   {
     id: 1,
-    title: "Mantenimiento Preventivo para tu Motor",
+    title: "Guía de Mantenimiento Básico",
     excerpt:
-      "Descubre los 5 puntos clave para mantener tu moto en perfectas condiciones durante cada temporada del año.",
-    image: "https://glik7.com/wp-content/uploads/2024/09/Testimonios-768x104.png", // Usando logo como placeholder de blog
-    category: "GUÍA TÉCNICA",
-    href: "#",
+      "Aprende a revisar la cadena, frenos y niveles de aceite para alargar la vida útil de tu moto y viajar seguro.",
+    image: "https://images.unsplash.com/photo-1547623641-82fbb83476e9?q=80&w=800",
+    category: "MANTENIMIENTO",
+    href: "/blog/mantenimiento",
   },
   {
     id: 2,
-    title: "Las Mejores Rutas para Aventureros",
+    title: "Travesía por la Carretera Austral",
     excerpt:
-      "Desde el desierto hasta la costa: explora las rutas más espectaculares que todo motociclista debe recorrer.",
-    image: "https://glik7.com/wp-content/uploads/2024/09/Screenshot_105-1024x450.png", // Imagen de landing como placeholder
-    category: "RUTAS Y VIAJES",
-    href: "#",
+      "Los mejores consejos, equipaje necesario y paradas obligatorias para realizar el viaje de tus sueños en dos ruedas.",
+    image: "https://images.unsplash.com/photo-1469033011856-3932dc730544?q=80&w=800",
+    category: "RUTAS",
+    href: "/blog/rutas-austral",
   },
   {
     id: 3,
-    title: "Nuevas Tecnologías en Seguridad",
+    title: "Importancia del Casco Certificado",
     excerpt:
-      "Conoce cómo los sistemas ABS pro y el control de tracción adaptativo están salvando vidas en la ciudad.",
-    image: "https://glik7.com/wp-content/uploads/2024/10/Screenshot_113.png",
-    category: "TENDENCIAS",
-    href: "#",
+      "No escatimes en seguridad: descubre las diferencias entre las certificaciones DOT, ECE y SNELL para elegir tu casco.",
+    image: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=800",
+    category: "SEGURIDAD",
+    href: "/blog/seguridad-casco",
   },
 ];
 

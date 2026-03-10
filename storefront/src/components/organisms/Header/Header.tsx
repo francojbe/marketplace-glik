@@ -43,9 +43,12 @@ export const Header = async ({ locale }: {
   return (
     <header data-testid="header" className="relative z-50">
       {/* GLIK TOP BANNER - This moves with scroll */}
-      <div className="bg-[#003087] text-white py-1.5 text-center w-full shadow-[0_2px_10px_rgba(0,0,0,0.2)] relative z-20">
-        <h1 className="text-xs md:text-sm font-bold tracking-wider">GLIK MOTOS MARKETPLACE</h1>
-        <p className="text-[9px] md:text-[10px] opacity-90 uppercase mt-0.5">Compra motos en cuotas seguras con Glik garante</p>
+      <div className="bg-[#003087] text-white py-1.5 text-center w-full shadow-[0_2px_10px_rgba(0,0,0,0.2)] relative z-20 overflow-hidden">
+        <div className="container flex justify-center items-center gap-4">
+          <h1 className="text-xs md:text-sm font-bold tracking-wider">GLIK MOTOS MARKETPLACE</h1>
+          <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-[#00d4aa]"></div>
+          <p className="text-[9px] md:text-[10px] opacity-90 uppercase font-medium">Compra motos en cuotas seguras con Glik garante</p>
+        </div>
       </div>
 
       {/* STICKY WRAPPER - This stays at the top */}
@@ -57,15 +60,18 @@ export const Header = async ({ locale }: {
               parentCategories={parentCategories}
               categories={categories}
             />
-            <LocalizedClientLink href="/" className="ml-3 lg:ml-0 flex items-center" data-testid="header-logo-link">
+            <LocalizedClientLink href="/" className="ml-3 lg:ml-0 flex items-center gap-4" data-testid="header-logo-link">
               <Image
                 src="/logo-glik.png"
-                width={120}
-                height={34}
+                width={132}
+                height={38}
                 alt="Glik Motos Logo"
-                className="object-contain"
+                className="object-contain hover:scale-105 transition-transform duration-300"
                 priority
               />
+              <div className="hidden sm:flex items-center bg-[#00d4aa]/10 border border-[#00d4aa]/20 px-3 py-1 rounded-full text-[9px] font-black text-[#00d4aa] tracking-tighter uppercase whitespace-nowrap">
+                🏆 MARKETPLACE N°1 EN CHILE
+              </div>
             </LocalizedClientLink>
           </div>
 

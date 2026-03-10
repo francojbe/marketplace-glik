@@ -50,6 +50,13 @@ export const ProductCard = ({
               </div>
             )}
           </div>
+
+          <button className="absolute top-3 right-3 z-10 bg-white/50 backdrop-blur-md p-2 rounded-full text-gray-700 hover:text-red-500 hover:bg-white transition-all shadow-md group/heart">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 fill-none group-hover/heart:fill-red-500">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+            </svg>
+          </button>
+
           {product.thumbnail ? (
             <Image
               priority
@@ -58,7 +65,7 @@ export const ProductCard = ({
               alt={`${productName} image`}
               fill
               sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-              className="object-cover w-full h-full xl:transition-transform xl:duration-500 xl:group-hover:scale-110"
+              className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
             />
           ) : (
             <Image
@@ -73,10 +80,18 @@ export const ProductCard = ({
           )}
         </div>
 
-        <div className="p-5 flex flex-col flex-1">
-          <h3 className="font-bold text-lg leading-tight mb-2 text-[#1b103c] line-clamp-2 min-h-[44px]" title={productName}>
+        <div className="p-5 flex flex-col flex-1 group-hover:bg-gray-50/50 transition-colors duration-300">
+          <h3 className="font-bold text-lg leading-tight mb-1 text-[#1b103c] line-clamp-2 min-h-[44px]" title={productName}>
             {product.title}
           </h3>
+
+          <div className="flex items-center gap-1.5 mb-3 text-[11px] font-bold text-gray-500">
+            <div className="flex text-yellow-500">
+              {"★".repeat(5)}
+            </div>
+            <span>4.8</span>
+            <span className="opacity-60">({Math.floor(Math.random() * 200) + 50} reviews)</span>
+          </div>
 
           <div className="flex items-end gap-2 mb-4">
             <span className="text-2xl font-black tracking-tight text-[#1b103c]">

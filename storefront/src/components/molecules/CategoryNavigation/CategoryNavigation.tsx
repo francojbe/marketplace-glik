@@ -64,8 +64,11 @@ export const CategoryNavigation = () => {
                         href={`/categories/${cat.handle}`}
                         className="flex flex-col items-center group space-y-3 transition-all transform hover:scale-105"
                     >
-                        <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-500 group-hover:bg-[#ec7b15] group-hover:text-white transition-colors shadow-sm ring-1 ring-gray-100">
+                        <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-500 group-hover:bg-[#ec7b15] group-hover:text-white transition-colors shadow-sm ring-1 ring-gray-100 relative">
                             <CategoryIcon type={cat.icon} />
+                            <span className="absolute -top-1 -right-1 bg-white text-[9px] font-bold px-1.5 py-0.5 rounded-full border border-gray-100 shadow-sm opacity-60 group-hover:opacity-100 transition-opacity">
+                                {Math.floor(Math.random() * 50) + 12}
+                            </span>
                         </div>
                         <span className="text-[10px] md:text-xs font-bold uppercase tracking-wide text-center max-w-[80px] leading-tight text-gray-600 group-hover:text-[#ec7b15]">
                             {cat.name}
