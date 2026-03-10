@@ -86,14 +86,14 @@ export const ProductSidebar = () => {
             <label className="block font-semibold mb-2">Marcas</label>
             {['Yamaha', 'Honda', 'Suzuki', 'Kawasaki', 'Bajaj', 'Glik Moto'].map(marca => (
               <div key={marca} className="flex items-center mb-2">
-                <input type="checkbox" id={`marca-${marca}`} className="mr-2 accent-[#003087] h-4 w-4" />
+                <input type="checkbox" id={`marca-${marca}`} className="mr-2 accent-[#ec7b15] h-4 w-4" />
                 <label htmlFor={`marca-${marca}`} className="text-sm text-gray-700">{marca}</label>
               </div>
             ))}
           </div>
 
-          <button className="w-full bg-[#003087] text-white py-2 rounded hover:bg-[#00286b] font-semibold">
-            Activar Filtros
+          <button className="w-full bg-[#ec7b15] text-white py-2 rounded-lg hover:bg-[#d66a0e] font-bold uppercase transition-all shadow-md">
+            Filtrar Motos
           </button>
         </div>
         <div
@@ -106,19 +106,16 @@ export const ProductSidebar = () => {
             onClick={() => clearAllFilters()}
             data-testid="sidebar-clear-all-button"
           >
-            Clear all
+            Limpiar
           </Button>
           <Button
-            className="label-sm w-1/2 uppercase"
+            className="label-sm w-1/2 uppercase bg-[#ec7b15]"
             onClick={() => setFilterModal(false)}
             data-testid="sidebar-view-listings-button"
           >
-            View 222 listings
+            Ver Resultados
           </Button>
         </div>
-      </div>
-      <div className="heading-md absolute top-4 z-10 w-full rounded-lg bg-primary p-8 text-center shadow-md">
-        Set your Algolia ID and configure filters to enable product filtering
       </div>
     </aside>
   );

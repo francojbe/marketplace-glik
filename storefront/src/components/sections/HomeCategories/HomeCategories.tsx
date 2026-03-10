@@ -6,31 +6,31 @@ export const categories: { id: number; name: string; handle: string; image: stri
     id: 1,
     name: "Scooters",
     handle: "scooters",
-    image: "https://glik7.com/wp-content/uploads/2024/09/suzuki-swift-gris.png",
+    image: "https://images.unsplash.com/photo-1541806086694-81788bc50d26?q=80&w=2000&auto=format&fit=crop",
   },
   {
     id: 2,
     name: "Deportivas",
     handle: "sport",
-    image: "https://glik7.com/wp-content/uploads/2024/09/Diagonal-express-negro.png",
+    image: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=2000&auto=format&fit=crop",
   },
   {
     id: 3,
     name: "Adventure",
     handle: "adventure",
-    image: "https://glik7.com/wp-content/uploads/2024/09/Kavak-azul-con-morado.png",
+    image: "https://images.unsplash.com/photo-1502744688674-c619d1586c9e?q=80&w=2000&auto=format&fit=crop",
   },
   {
     id: 4,
     name: "Street",
     handle: "street",
-    image: "https://glik7.com/wp-content/uploads/2024/09/2-removebg-preview.png",
+    image: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=2000&auto=format&fit=crop",
   },
   {
     id: 5,
     name: "Cruiser",
     handle: "cruiser",
-    image: "https://glik7.com/wp-content/uploads/2024/09/Motor-horse.png",
+    image: "https://images.unsplash.com/photo-1508357941501-0924cf312bbd?q=80&w=2000&auto=format&fit=crop",
   },
 ]
 
