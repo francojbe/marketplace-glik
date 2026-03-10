@@ -22,9 +22,9 @@ export const listProducts = async ({
 }: {
   pageParam?: number;
   queryParams?: HttpTypes.FindParams &
-    HttpTypes.StoreProductParams & {
-      handle?: string[];
-    };
+  HttpTypes.StoreProductParams & {
+    handle?: string[];
+  };
   category_id?: string;
   collection_id?: string;
   countryCode?: string;
@@ -94,20 +94,16 @@ export const listProducts = async ({
 
       const nextPage = count > offset + limit ? pageParam + 1 : null;
 
-      const response = products.filter(prod => {
+      const response = products.map(prod => {
         // @ts-ignore Property 'seller' exists but TypeScript doesn't recognize it
-        const reviews = prod.seller?.reviews.filter(item => !!item) ?? [];
-        return (
-          // @ts-ignore Property 'seller' exists but TypeScript doesn't recognize it
-          prod?.seller && {
-            ...prod,
-            seller: {
-              // @ts-ignore Property 'seller' exists but TypeScript doesn't recognize it
-              ...prod.seller,
-              reviews
-            }
-          }
-        );
+        const reviews = prod.seller?.reviews?.filter(item => !!item) ?? [];
+        return {
+          ...prod,
+          seller: prod.seller ? {
+            ...prod.seller,
+            reviews
+          } : undefined
+        };
       });
 
       return {
@@ -250,7 +246,7 @@ export const searchProducts = async (params: {
 
   let facets = params.facets;
 
-  if(!facets) {
+  if (!facets) {
     facets = ["variants.condition", "variants.color", "variants.size"];
   }
 
