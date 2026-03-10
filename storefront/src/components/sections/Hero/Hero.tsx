@@ -3,7 +3,7 @@ import React from "react"
 
 import Image from "next/image"
 import { ArrowRightIcon } from "@/icons"
-import LocalizedClientLink from "@/components/modules/common/components/localized-client-link"
+import LocalizedClientLink from "@/components/molecules/LocalizedLink/LocalizedLink"
 import { cn } from "@/lib/utils"
 
 type HeroProps = {

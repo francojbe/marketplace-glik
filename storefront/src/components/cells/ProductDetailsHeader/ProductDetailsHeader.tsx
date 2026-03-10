@@ -20,7 +20,7 @@ const optionsAsKeymap = (
       acc: Record<string, string>,
       varopt: HttpTypes.StoreProductOptionValue
     ) => {
-      acc[varopt.option?.title.toLowerCase() || ""] = varopt.value
+      acc[varopt.option?.title?.toLowerCase() || ""] = varopt.value
 
       return acc
     },
@@ -61,7 +61,7 @@ export const ProductDetailsHeader = ({
   const variantId =
     product.variants?.find(({ options }: { options: any }) =>
       options?.every((option: any) =>
-        selectedVariant[option.option?.title.toLowerCase() || ""]?.includes(
+        selectedVariant[option.option?.title?.toLowerCase() || ""]?.includes(
           option.value
         )
       )

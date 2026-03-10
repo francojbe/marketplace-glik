@@ -35,7 +35,7 @@ export const ProductDetailsPage = async ({
       <div className="my-8">
         <HomeProductSection
           heading="More from this seller"
-          products={prod.seller?.products}
+          products={prod.seller?.products || []}
           // seller_handle={prod.seller?.handle}
           locale={locale}
         />
