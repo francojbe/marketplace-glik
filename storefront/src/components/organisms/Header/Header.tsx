@@ -35,14 +35,14 @@ export const Header = async ({ locale }: {
     parentCategories: HttpTypes.StoreProductCategory[]
   }
   return (
-    <header data-testid="header">
+    <header data-testid="header" className="bg-[#1a1a1a] text-white sticky top-0 z-50 shadow-md">
       {/* GLIK TOP BANNER */}
-      <div className="bg-[#003087] text-white py-4 text-center w-full">
-        <h1 className="text-2xl font-bold">Glik Motos Marketplace</h1>
-        <p className="text-sm">Compra motos en cuotas seguras con Glik garante</p>
+      <div className="bg-[#003087] text-white py-2 text-center w-full shadow-[0_2px_10px_rgba(0,0,0,0.3)] relative z-10">
+        <h1 className="text-sm md:text-base font-bold tracking-wider">GLIK MOTOS MARKETPLACE</h1>
+        <p className="text-[10px] md:text-xs opacity-90 uppercase mt-0.5">Compra motos en cuotas seguras con Glik garante</p>
       </div>
 
-      <div className="flex py-2 lg:px-8 px-4 md:px-5" data-testid="header-top">
+      <div className="flex py-4 lg:px-8 px-4 md:px-5 border-b border-white/10 bg-[#1a1a1a]" data-testid="header-top">
         <div className="flex items-center lg:w-1/3">
           <MobileNavbar
             parentCategories={parentCategories}
