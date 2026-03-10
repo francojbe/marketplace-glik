@@ -161,8 +161,8 @@ export default async function Home({
 
       <Hero
         image="/images/hero/Image.jpg"
-        heading="Encuentra tu estilo en un instante"
-        paragraph="Compra, vende y descubre las mejores joyas de las marcas más modernas."
+        heading="Muévete con Glik"
+        paragraph="Transformamos tu vida a través del arrendamiento a la movilidad de bajo costo. Encuentra tu moto ideal en cuotas fijas."
         buttons={[
           { label: "Comprar ahora", path: "/categories" },
           {

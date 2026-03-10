@@ -19,13 +19,13 @@ const funnelDisplay = Funnel_Display({
 
 export const metadata: Metadata = {
   title: {
-    template: `%s | ${process.env.NEXT_PUBLIC_SITE_NAME || 'Mercur B2C Demo - Marketplace Storefront'
+    template: `%s | ${process.env.NEXT_PUBLIC_SITE_NAME || 'Glik Motos - Tu Marketplace de Motos'
       }`,
-    default: process.env.NEXT_PUBLIC_SITE_NAME || 'Mercur B2C Demo - Marketplace Storefront'
+    default: process.env.NEXT_PUBLIC_SITE_NAME || 'Glik Motos - Tu Marketplace de Motos'
   },
   description:
-    process.env.NEXT_PUBLIC_SITE_DESCRIPTION || 'Mercur B2C Demo - Marketplace Storefront',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
+    process.env.NEXT_PUBLIC_SITE_DESCRIPTION || 'Transformar la vida del venezolano a través del arrendamiento a la movilidad de bajo costo.',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://glik7-marketplace-storefront.nojauc.easypanel.host'),
   alternates: {
     languages: {
       'x-default': process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'

@@ -13,9 +13,9 @@ const links = {
     { label: 'Terms & Conditions', path: '#' },
   ],
   connect: [
-    { label: 'Facebook', path: 'https://facebook.com' },
-    { label: 'Instagram', path: 'https://instagram.com' },
-    { label: 'LinekdIn', path: 'https://linkedin.com' },
+    { label: 'Facebook', path: 'https://www.facebook.com/profile.php?id=100092278996637' },
+    { label: 'Instagram', path: 'https://www.instagram.com/glik.ve/' },
+    { label: 'LinkedIn', path: 'https://linkedin.com' },
   ],
 };
 
