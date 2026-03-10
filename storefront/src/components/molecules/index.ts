@@ -37,8 +37,10 @@ import { SellerScore } from './SellerScore/SellerScore';
 import { TabsContent } from './TabsContent/TabsContent';
 import { TabsList } from './TabsList/TabsList';
 import { UserNavigation } from './UserNavigation/UserNavigation';
+import { CategoryNavigation } from './CategoryNavigation/CategoryNavigation';
 
 export {
+  CategoryNavigation,
   PrimeCategoryNavbar,
   CategoryNavbar,
   ParentCategoryLinks,
