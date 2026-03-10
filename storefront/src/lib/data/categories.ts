@@ -27,7 +27,12 @@ export const listCategories = async ({ query }: Partial<CategoriesProps> = {}) =
 
   const parentCategories = allCategories.filter(cat => !cat.parent_category_id);
 
-  const mainCategories = parentCategories.flatMap(parent => parent.category_children || []);
+  // Fallback: If there are no children, show top-level categories as main categories
+  let mainCategories = parentCategories.flatMap(parent => parent.category_children || []);
+
+  if (mainCategories.length === 0 && parentCategories.length > 0) {
+    mainCategories = parentCategories;
+  }
 
   const mainCategoriesWithChildren = mainCategories.map(mainCat => {
     const children = allCategories.filter(cat => cat.parent_category_id === mainCat.id);
