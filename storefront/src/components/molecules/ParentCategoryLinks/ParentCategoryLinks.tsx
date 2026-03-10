@@ -11,38 +11,33 @@ interface ParentCategoryLinksProps {
   categories: HttpTypes.StoreProductCategory[]
 }
 
-export const ParentCategoryLinks = ({
-  parentCategories,
-  categories,
-}: ParentCategoryLinksProps) => {
-  const { category } = useParams<{ category?: string }>()
-
-  const activeParentHandle = useMemo(
-    () => getActiveParentHandle(category, categories, parentCategories),
-    [category, categories, parentCategories]
-  )
+export const ParentCategoryLinks = () => {
+  const links = [
+    { label: "INICIO", href: "/" },
+    { label: "NUESTROS PRODUCTOS", href: "/categories/motos" },
+    { label: "¿CÓMO ARRENDAR?", href: "#" },
+    { label: "¿QUIÉNES SOMOS?", href: "#" },
+    { label: "CONTÁCTANOS", href: "#" },
+  ];
 
   return (
     <nav
-      className="hidden lg:flex items-center gap-4"
-      aria-label="Parent categories"
+      className="hidden lg:flex items-center gap-3 xl:gap-5"
+      aria-label="Corporate Categories"
     >
-      {parentCategories.map(({ id, handle, name }) => {
-        const isActive = handle === activeParentHandle
-
-        return (
+      {links.map((link, index) => (
+        <div key={link.label} className="flex items-center gap-3 xl:gap-5">
           <LocalizedClientLink
-            key={id}
-            href={`/categories/${handle}`}
-            className={cn(
-              "label-large uppercase text-white hover:text-[#00d4aa] transition-colors pb-2 font-bold",
-              isActive && "border-b-2 border-[#00d4aa] text-[#00d4aa]"
-            )}
+            href={link.href}
+            className="text-[11px] xl:text-[13px] uppercase text-white hover:text-[#ec7b15] transition-colors font-medium tracking-wider"
           >
-            {name}
+            {link.label}
           </LocalizedClientLink>
-        )
-      })}
+          {index < links.length - 1 && (
+            <div className="w-1 h-1 rounded-full bg-[#ec7b15]"></div>
+          )}
+        </div>
+      ))}
     </nav>
   )
 }
