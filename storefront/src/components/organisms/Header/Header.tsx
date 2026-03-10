@@ -76,10 +76,7 @@ export const Header = async ({ locale }: {
             </LocalizedClientLink>
           </div>
 
-          {/* SEARCH - CENTER */}
-          <div className="hidden lg:flex items-center justify-center flex-1 mx-4 max-w-2xl border-none">
-             <NavbarSearch />
-          </div>
+          <div className="flex-1" />
 
           {/* ACTIONS - RIGHT */}
           <div className="flex items-center justify-end gap-2 lg:gap-4 shrink-0 w-[20%]" data-testid="header-actions">
