@@ -1,31 +1,36 @@
 import { Carousel } from "@/components/cells"
 import { CategoryCard } from "@/components/organisms"
 
-export const categories: { id: number; name: string; handle: string }[] = [
+export const categories: { id: number; name: string; handle: string; image: string }[] = [
   {
     id: 1,
-    name: "Sneakers",
-    handle: "sneakers",
+    name: "Scooters",
+    handle: "scooters",
+    image: "https://glik7.com/wp-content/uploads/2024/09/suzuki-swift-gris.png",
   },
   {
     id: 2,
-    name: "Sandals",
-    handle: "sandals",
+    name: "Deportivas",
+    handle: "sport",
+    image: "https://glik7.com/wp-content/uploads/2024/09/Diagonal-express-negro.png",
   },
   {
     id: 3,
-    name: "Boots",
-    handle: "boots",
+    name: "Adventure",
+    handle: "adventure",
+    image: "https://glik7.com/wp-content/uploads/2024/09/Kavak-azul-con-morado.png",
   },
   {
     id: 4,
-    name: "Sport",
-    handle: "sport",
+    name: "Street",
+    handle: "street",
+    image: "https://glik7.com/wp-content/uploads/2024/09/2-removebg-preview.png",
   },
   {
     id: 5,
-    name: "Accessories",
-    handle: "accessories",
+    name: "Cruiser",
+    handle: "cruiser",
+    image: "https://glik7.com/wp-content/uploads/2024/09/Motor-horse.png",
   },
 ]
 
