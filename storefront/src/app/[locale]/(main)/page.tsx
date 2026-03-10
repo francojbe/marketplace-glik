@@ -170,7 +170,7 @@ export default async function Home({
             label: "Vender ahora",
             path:
               process.env.NEXT_PUBLIC_VENDOR_URL ||
-              "http://localhost:5173",
+              "https://glik7-marketplace-vendor.nojauc.easypanel.host",
           },
         ]}
       />

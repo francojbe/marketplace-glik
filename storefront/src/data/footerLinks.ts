@@ -1,16 +1,15 @@
 const links = {
   customerServices: [
-    { label: 'FAQs', path: '#' },
-    { label: 'Track Order', path: '#' },
-    { label: 'Returns', path: '#' },
-    { label: 'Delivery', path: '#' },
-    { label: 'Payment', path: '#' },
+    { label: 'FAQs', path: '/contacto' },
+    { label: '¿Cómo arrendar?', path: '/como-arrendar' },
+    { label: 'Contacto', path: '/contacto' },
+    { label: 'Financiamiento', path: '/contacto' },
   ],
   about: [
-    { label: 'About us', path: '#' },
-    { label: 'Blog', path: '#' },
-    { label: 'Privacy Policy', path: '#' },
-    { label: 'Terms & Conditions', path: '#' },
+    { label: 'Quiénes Somos', path: '/quienes-somos' },
+    { label: 'Blog', path: '/blog' },
+    { label: 'Privacidad', path: '/privacy-policy' },
+    { label: 'Términos', path: '/terms-and-conditions' },
   ],
   connect: [
     { label: 'Facebook', path: 'https://www.facebook.com/profile.php?id=100092278996637' },

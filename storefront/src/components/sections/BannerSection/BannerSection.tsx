@@ -18,7 +18,7 @@ export const BannerSection = () => {
               Descubre las mejores opciones en scooters y motos de calle para moverte libremente por la ciudad. Financiamiento a tu medida garantizado.
             </p>
           </div>
-          <LocalizedClientLink href="/categories/scooters">
+          <LocalizedClientLink href="/categories/scooter">
             <Button size="large" className="w-fit bg-[#003087] text-white hover:bg-[#00d4aa] transition-colors rounded">
               VER SCOOTERS
             </Button>
@@ -28,8 +28,8 @@ export const BannerSection = () => {
           <Image
             loading="lazy"
             fetchPriority="low"
-            src="https://glik7.com/wp-content/uploads/2024/09/suzuki-swift-gris.png"
-            alt="Vehículos y scooters Glik"
+            src="https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?q=80&w=1200"
+            alt="Motos y scooters Glik"
             fill
             className="object-cover object-center"
             sizes="(min-width: 1024px) 50vw, 100vw"
