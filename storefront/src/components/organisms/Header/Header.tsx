@@ -15,15 +15,15 @@ import { getUserWishlists } from "@/lib/data/wishlist"
 import { retrieveCustomer } from "@/lib/data/customer"
 import { ParentCategoryLinks } from "@/components/molecules/ParentCategoryLinks/ParentCategoryLinks"
 
-export const Header = async ({ locale } : {
+export const Header = async ({ locale }: {
   locale: string
 }) => {
   const user = await retrieveCustomer().catch(() => null)
   const isLoggedIn = Boolean(user)
 
-  let wishlist: Wishlist = {products: []}
+  let wishlist: Wishlist = { products: [] }
   if (user) {
-    wishlist = await getUserWishlists({countryCode: locale})
+    wishlist = await getUserWishlists({ countryCode: locale })
   }
 
   const regions = await listRegions()
@@ -36,6 +36,12 @@ export const Header = async ({ locale } : {
   }
   return (
     <header data-testid="header">
+      {/* GLIK TOP BANNER */}
+      <div className="bg-[#003087] text-white py-4 text-center w-full">
+        <h1 className="text-2xl font-bold">Glik Motos Marketplace</h1>
+        <p className="text-sm">Compra motos en cuotas seguras con Glik garante</p>
+      </div>
+
       <div className="flex py-2 lg:px-8 px-4 md:px-5" data-testid="header-top">
         <div className="flex items-center lg:w-1/3">
           <MobileNavbar
