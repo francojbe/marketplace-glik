@@ -162,25 +162,25 @@ export const ProductDetailsHeader = ({
       <div className="w-full mb-8 mt-6">
         <h3 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-3">Especificaciones Principales</h3>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-          <div className="bg-[#ec7b15]/5 border border-[#ec7b15]/20 rounded-lg p-3 flex flex-col items-center justify-center text-center transition-all hover:bg-[#ec7b15]/10 group/spec">
-            <span className="text-xl mb-1 group-hover/spec:scale-110 transition-transform">📅</span>
-            <span className="text-[10px] text-gray-400 uppercase font-bold tracking-wider">Año</span>
-            <span className="text-sm font-bold text-[#1b103c]">{product?.options?.find(o => o.title?.toLowerCase() === 'año')?.values?.[0]?.value || '2024'}</span>
+          <div className="bg-[#ec7b15] rounded-xl p-4 flex flex-col items-center justify-center text-center transition-all hover:scale-105 shadow-md hover:shadow-lg group/spec">
+            <span className="text-2xl mb-1">📅</span>
+            <span className="text-[10px] text-white/70 uppercase font-bold tracking-widest">Año</span>
+            <span className="text-sm font-black text-white">{product?.options?.find(o => o.title?.toLowerCase() === 'año')?.values?.[0]?.value || '2024'}</span>
           </div>
-          <div className="bg-[#ec7b15]/5 border border-[#ec7b15]/20 rounded-lg p-3 flex flex-col items-center justify-center text-center transition-all hover:bg-[#ec7b15]/10 group/spec">
-            <span className="text-xl mb-1 group-hover/spec:scale-110 transition-transform">🛣️</span>
-            <span className="text-[10px] text-gray-400 uppercase font-bold tracking-wider">Estado</span>
-            <span className="text-sm font-bold text-[#1b103c]">{product?.options?.find(o => o.title?.toLowerCase() === 'estado' || o.title?.toLowerCase() === 'kilometraje')?.values?.[0]?.value === 'Nueva' ? '0 km' : 'Usada'}</span>
+          <div className="bg-[#ec7b15] rounded-xl p-4 flex flex-col items-center justify-center text-center transition-all hover:scale-105 shadow-md hover:shadow-lg group/spec">
+            <span className="text-2xl mb-1">🛣️</span>
+            <span className="text-[10px] text-white/70 uppercase font-bold tracking-widest">Estado</span>
+            <span className="text-sm font-black text-white">{product?.options?.find(o => o.title?.toLowerCase() === 'estado' || o.title?.toLowerCase() === 'kilometraje')?.values?.[0]?.value === 'Nueva' ? '0 km' : 'Usada'}</span>
           </div>
-          <div className="bg-[#ec7b15]/5 border border-[#ec7b15]/20 rounded-lg p-3 flex flex-col items-center justify-center text-center transition-all hover:bg-[#ec7b15]/10 group/spec">
-            <span className="text-xl mb-1 group-hover/spec:scale-110 transition-transform">🏍️</span>
-            <span className="text-[10px] text-gray-400 uppercase font-bold tracking-wider">Motor</span>
-            <span className="text-sm font-bold text-[#1b103c]">{product?.options?.find(o => o.title?.toLowerCase() === 'cilindrada')?.values?.[0]?.value || 'Motor'}</span>
+          <div className="bg-[#ec7b15] rounded-xl p-4 flex flex-col items-center justify-center text-center transition-all hover:scale-105 shadow-md hover:shadow-lg group/spec">
+            <span className="text-2xl mb-1">🏍️</span>
+            <span className="text-[10px] text-white/70 uppercase font-bold tracking-widest">Motor</span>
+            <span className="text-sm font-black text-white">{product?.options?.find(o => o.title?.toLowerCase() === 'cilindrada')?.values?.[0]?.value || 'Motor'}</span>
           </div>
-          <div className="bg-[#ec7b15]/5 border border-[#ec7b15]/20 rounded-lg p-3 flex flex-col items-center justify-center text-center transition-all hover:bg-[#ec7b15]/10 group/spec">
-            <span className="text-xl mb-1 group-hover/spec:scale-110 transition-transform">🏷️</span>
-            <span className="text-[10px] text-gray-400 uppercase font-bold tracking-wider">Marca</span>
-            <span className="text-sm font-bold text-[#1b103c]">{product?.options?.find(o => o.title?.toLowerCase() === 'marca')?.values?.[0]?.value || 'Glik Moto'}</span>
+          <div className="bg-[#ec7b15] rounded-xl p-4 flex flex-col items-center justify-center text-center transition-all hover:scale-105 shadow-md hover:shadow-lg group/spec">
+            <span className="text-2xl mb-1">🏷️</span>
+            <span className="text-[10px] text-white/70 uppercase font-bold tracking-widest">Marca</span>
+            <span className="text-sm font-black text-white">{product?.options?.find(o => o.title?.toLowerCase() === 'marca')?.values?.[0]?.value || 'Glik Moto'}</span>
           </div>
         </div>
       </div>
