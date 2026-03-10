@@ -34,8 +34,8 @@ export const NavbarSearch = ({ className }: Props) => {
       <Input
         icon={<SearchIcon />}
         onIconClick={handleSearch}
-        iconAriaLabel="Search"
-        placeholder="Search product"
+        iconAriaLabel="Buscar"
+        placeholder="Buscar motos..."
         value={search}
         changeValue={setSearch}
         type="search"
