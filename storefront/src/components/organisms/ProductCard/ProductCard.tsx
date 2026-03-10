@@ -38,7 +38,7 @@ export const ProductCard = ({
         title={`Ver ${productName}`}
         className="block h-full flex flex-col"
       >
-        <div className="relative w-full h-56 bg-gray-100 overflow-hidden">
+        <div className="relative w-full h-48 bg-gray-100 overflow-hidden">
           <div className="absolute top-3 left-3 z-10 flex flex-col gap-2">
             <div className="bg-[#00d4aa] text-[#1b103c] text-[10px] font-black px-3 py-1 rounded-full shadow-lg flex items-center gap-1.5 uppercase tracking-wider">
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
@@ -80,12 +80,12 @@ export const ProductCard = ({
           )}
         </div>
 
-        <div className="p-4 flex flex-col flex-1 group-hover:bg-gray-50/50 transition-colors duration-300">
-          <h3 className="font-bold text-base leading-snug mb-1 text-[#1b103c] line-clamp-2 min-h-[40px]" title={productName}>
+        <div className="p-3 lg:p-4 flex flex-col flex-1 group-hover:bg-gray-50/50 transition-colors duration-300">
+          <h3 className="font-bold text-sm lg:text-[14px] leading-snug mb-1 text-[#1b103c] line-clamp-2 min-h-[38px]" title={productName}>
             {product.title}
           </h3>
 
-          <div className="flex items-center gap-1.5 mb-2.5 text-[11px] font-bold text-gray-500">
+          <div className="flex items-center gap-1.5 mb-2 text-[11px] font-bold text-gray-500">
             <div className="flex text-yellow-500">
               {"★".repeat(5)}
             </div>
@@ -93,25 +93,25 @@ export const ProductCard = ({
             <span className="opacity-60">({(product.title?.length || 0) * 7 % 150 + 50} reviews)</span>
           </div>
 
-          <div className="flex items-end gap-2 mb-3">
-            <span className="text-xl font-black tracking-tight text-[#1b103c]">
+          <div className="flex items-end gap-2 mb-2">
+            <span className="text-lg font-black tracking-tight text-[#1b103c]">
               {cheapestPrice?.calculated_price || 'Precio en tienda'}
             </span>
             {cheapestPrice?.calculated_price !== cheapestPrice?.original_price && (
-              <span className="text-xs text-gray-400 line-through mb-1">
+              <span className="text-[10px] text-gray-400 line-through mb-1">
                 {cheapestPrice?.original_price}
               </span>
             )}
           </div>
 
-          <div className="grid grid-cols-2 gap-2 text-[11px] text-gray-600 mb-4 bg-gray-50/80 p-2.5 rounded-lg border border-gray-100 mt-auto">
-            <span className="flex items-center gap-1.5"><span className="text-[13px]">📅</span> {product?.options?.find(o => o.title?.toLowerCase() === 'año')?.values?.[0]?.value || '2024'}</span>
-            <span className="flex items-center gap-1.5"><span className="text-[13px]">🛣️</span> {product?.options?.find(o => o.title?.toLowerCase() === 'estado' || o.title?.toLowerCase() === 'kilometraje')?.values?.[0]?.value === 'Nueva' ? '0 km' : 'Usada'}</span>
-            <span className="flex items-center gap-1.5"><span className="text-[13px]">🏍️</span> {product?.options?.find(o => o.title?.toLowerCase() === 'cilindrada')?.values?.[0]?.value || 'Motor'}</span>
-            <span className="flex items-center gap-1.5 truncate"><span className="text-[13px]">🏷️</span> {product?.options?.find(o => o.title?.toLowerCase() === 'marca')?.values?.[0]?.value || 'Glik Moto'}</span>
+          <div className="grid grid-cols-2 gap-1.5 text-[10px] lg:text-[11px] text-gray-600 mb-3 bg-gray-50/80 p-2 rounded border border-gray-100 mt-auto leading-tight">
+            <span className="flex items-center gap-1"><span className="text-[12px]">📅</span> {product?.options?.find(o => o.title?.toLowerCase() === 'año')?.values?.[0]?.value || '2024'}</span>
+            <span className="flex items-center gap-1"><span className="text-[12px]">🛣️</span> {product?.options?.find(o => o.title?.toLowerCase() === 'estado' || o.title?.toLowerCase() === 'kilometraje')?.values?.[0]?.value === 'Nueva' ? '0 km' : 'Usada'}</span>
+            <span className="flex items-center gap-1"><span className="text-[12px]">🏍️</span> {product?.options?.find(o => o.title?.toLowerCase() === 'cilindrada')?.values?.[0]?.value || 'Motor'}</span>
+            <span className="flex items-center gap-1 truncate"><span className="text-[12px]">🏷️</span> {product?.options?.find(o => o.title?.toLowerCase() === 'marca')?.values?.[0]?.value || 'Glik Moto'}</span>
           </div>
 
-          <div className="w-full flex items-center justify-center bg-[#ec7b15] text-white py-2.5 rounded-lg hover:bg-[#d66a0e] transition-colors font-bold uppercase text-xs tracking-wider shadow-sm hover:shadow-md min-h-[40px]">
+          <div className="w-full flex items-center justify-center bg-[#ec7b15] text-white py-1.5 rounded-md hover:bg-[#d66a0e] transition-colors font-bold uppercase text-[11px] tracking-wider shadow-sm hover:shadow-md min-h-[36px]">
             Ver Detalles
           </div>
         </div>

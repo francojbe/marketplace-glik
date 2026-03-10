@@ -6,20 +6,20 @@ export const BannerSection = () => {
   return (
     <section className="bg-tertiary container text-tertiary">
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
-        <div className="py-6 px-6 md:p-10 flex flex-col h-full justify-between border border-[#003087]/20 rounded-xl bg-gradient-to-br from-white to-gray-50">
-          <div className="mb-8 lg:mb-8">
-            <span className="text-xs font-bold text-[#003087] bg-[#003087]/10 tracking-widest inline-block px-4 py-1.5 rounded-full mb-4">
+        <div className="py-5 px-5 md:p-8 flex flex-col h-full justify-between border border-[#003087]/20 rounded-xl bg-gradient-to-br from-white to-gray-50">
+          <div className="mb-6 lg:mb-8">
+            <span className="text-[10px] font-bold text-[#003087] bg-[#003087]/10 tracking-widest inline-block px-3 py-1 rounded-full mb-3">
               #MOVILIDAD
             </span>
-            <h2 className="text-4xl md:text-5xl font-black mb-4 text-[#1a1a1a] leading-tight">
+            <h2 className="text-3xl md:text-4xl font-black mb-3 text-[#1a1a1a] leading-tight">
               LLEGA MÁS LEJOS, DECIDE LA RUTA
             </h2>
-            <p className="text-lg text-gray-600 max-w-lg">
+            <p className="text-sm md:text-base text-gray-600 max-w-lg leading-relaxed">
               Descubre las mejores opciones en scooters y motos de calle para moverte libremente por la ciudad. Financiamiento a tu medida garantizado.
             </p>
           </div>
           <LocalizedClientLink href="/categories/scooter">
-            <Button size="large" className="w-fit bg-[#003087] text-white hover:bg-[#00d4aa] transition-colors rounded">
+            <Button size="large" className="w-fit bg-[#003087] text-white hover:bg-[#00d4aa] transition-colors rounded text-sm py-2 px-6 min-h-[40px]">
               VER SCOOTERS
             </Button>
           </LocalizedClientLink>

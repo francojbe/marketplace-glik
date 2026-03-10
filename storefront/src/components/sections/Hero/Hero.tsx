@@ -15,7 +15,7 @@ type HeroProps = {
 
 export const Hero = ({ image, heading, paragraph, buttons }: HeroProps) => {
   return (
-    <section className="relative w-full h-[70vh] min-h-[500px] lg:min-h-[600px] flex justify-center mt-0 overflow-hidden bg-[#0a0a0b]">
+    <section className="relative w-full h-[55vh] min-h-[400px] lg:min-h-[480px] flex justify-center mt-0 overflow-hidden bg-[#0a0a0b]">
       {/* Background Image with Ken Burns effect */}
       <Image
         src={decodeURIComponent(image)}
@@ -45,14 +45,14 @@ export const Hero = ({ image, heading, paragraph, buttons }: HeroProps) => {
           </div>
 
           <div className="animate-[fade-in-up_1s_ease-out]">
-            <h1 className="font-black mb-4 text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1] drop-shadow-2xl text-balance">
+            <h1 className="font-black mb-4 text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.1] drop-shadow-2xl text-balance">
               {heading.split(' - ').map((part, i) => (
                 <span key={i} className={cn("block", i === 1 && "text-[#ec7b15] mt-2")}>{part}</span>
               ))}
             </h1>
           </div>
 
-          <p className="text-base md:text-lg lg:text-xl mb-8 font-medium text-gray-300 max-w-2xl leading-relaxed opacity-95 animate-[fade-in-up_1.2s_ease-out]">
+          <p className="text-sm md:text-base lg:text-lg mb-6 font-medium text-gray-300 max-w-2xl leading-relaxed opacity-95 animate-[fade-in-up_1.2s_ease-out]">
             {paragraph.split('Glik garante').map((text, i, arr) => (
               <React.Fragment key={i}>
                 {text}
@@ -72,7 +72,7 @@ export const Hero = ({ image, heading, paragraph, buttons }: HeroProps) => {
                     key={path}
                     href={path}
                     className={cn(
-                      "group flex items-center justify-center px-8 py-3.5 rounded-xl font-black text-xs md:text-sm transition-all duration-500 uppercase tracking-[1.5px] shadow-2xl overflow-hidden relative",
+                      "group flex items-center justify-center px-6 py-2.5 rounded-xl font-black text-[11px] md:text-xs transition-all duration-500 uppercase tracking-[1.5px] shadow-2xl overflow-hidden relative",
                       isPrimary
                         ? "bg-[#ec7b15] text-white hover:bg-white hover:text-[#1b103c] scale-100 hover:scale-105 active:scale-95"
                         : "bg-white/5 backdrop-blur-xl border border-white/20 text-white hover:bg-white/10 hover:border-white/40"
