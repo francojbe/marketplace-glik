@@ -12,37 +12,47 @@ type HeroProps = {
 
 export const Hero = ({ image, heading, paragraph, buttons }: HeroProps) => {
   return (
-    <section className="relative w-full h-[80vh] min-h-[550px] lg:min-h-[700px] flex justify-center mt-0 overflow-hidden bg-[#1a1a1a]">
-      {/* Background Image */}
+    <section className="relative w-full h-[85vh] min-h-[600px] lg:min-h-[750px] flex justify-center mt-0 overflow-hidden bg-[#0a0a0b]">
+      {/* Background Image with Ken Burns effect */}
       <Image
         src={decodeURIComponent(image)}
         fill
         alt={`Hero banner - ${heading}`}
-        className="object-cover object-center opacity-60 scale-105 animate-[pulse_20s_ease-in-out_infinite_alternate]"
+        className="object-cover object-center translate-z-0 scale-105 animate-[ken-burns_20s_ease-in-out_infinite_alternate]"
         priority
         fetchPriority="high"
-        quality={85}
+        quality={90}
         sizes="100vw"
       />
-      {/* Gradient Overlays for deep contrast and brand colors */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-[#1a1a1a]/30 to-transparent"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-[#003087]/80 lg:from-[#003087]/90 via-[#003087]/20 to-transparent"></div>
+
+      {/* Premium Multi-layer Gradients */}
+      <div className="absolute inset-0 bg-neutral-950/40"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0b] via-transparent to-[#0a0a0b]/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-[#1b103c]/90 via-[#1b103c]/40 to-transparent"></div>
+
+      {/* Accent Light - Subtle orange glow */}
+      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-[#ec7b15]/20 blur-[120px] rounded-full"></div>
 
       {/* Content Container */}
-      <div className="relative z-10 w-full container mx-auto px-6 lg:px-8 flex flex-col justify-center text-white h-full">
-        <div className="max-w-3xl backdrop-blur-md bg-white/5 p-8 md:p-12 rounded-[2rem] border border-white/10 shadow-2xl transition-all duration-500 hover:bg-white/10 hover:border-white/20">
-          <div className="inline-block px-4 py-1.5 rounded-full bg-[#00d4aa]/20 border border-[#00d4aa]/50 text-[#00d4aa] font-bold text-xs tracking-widest uppercase mb-6 animate-fade-in">
-            NUEVA ERA MOTOR EST. 2026
+      <div className="relative z-10 w-full container mx-auto px-6 lg:px-12 flex flex-col justify-center text-white h-full">
+        <div className="max-w-3xl">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold text-[10px] tracking-[0.2em] uppercase mb-8 animate-fade-in shadow-xl">
+            <span className="w-2 h-2 rounded-full bg-[#ec7b15] animate-pulse"></span>
+            MARKETPLACE Nº1 EN CHILE
           </div>
-          <h2 className="font-black mb-6 text-5xl md:text-6xl lg:text-7xl tracking-tighter leading-[1.1] drop-shadow-2xl text-balance bg-clip-text text-transparent bg-gradient-to-br from-white to-gray-300">
-            {heading}
-          </h2>
-          <p className="text-lg md:text-2xl mb-10 font-light text-gray-200 border-l-4 border-[#00d4aa] pl-5 opacity-90">
+
+          <h1 className="font-black mb-6 text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1] drop-shadow-2xl text-balance">
+            {heading.split(' - ').map((part, i) => (
+              <span key={i} className={cn("block", i === 1 && "text-[#ec7b15] mt-2")}>{part}</span>
+            ))}
+          </h1>
+
+          <p className="text-lg md:text-xl lg:text-2xl mb-12 font-medium text-gray-300 max-w-2xl leading-relaxed opacity-95">
             {paragraph}
           </p>
 
           {buttons.length > 0 && (
-            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row gap-5">
               {buttons.map(({ label, path }, index) => {
                 const isPrimary = index === 0;
                 return (
@@ -50,17 +60,20 @@ export const Hero = ({ image, heading, paragraph, buttons }: HeroProps) => {
                     key={path}
                     href={path}
                     className={cn(
-                      "group flex items-center justify-center px-8 py-4 rounded-xl font-bold text-sm md:text-base transition-all duration-300 uppercase tracking-widest",
+                      "group flex items-center justify-center px-10 py-5 rounded-2xl font-black text-sm md:text-base transition-all duration-500 uppercase tracking-[2px] shadow-2xl overflow-hidden relative",
                       isPrimary
-                        ? "bg-[#00d4aa] text-[#1a1a1a] hover:bg-white hover:text-[#003087] shadow-[0_0_20px_rgba(0,212,170,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.6)]"
-                        : "bg-transparent backdrop-blur-md border-[1.5px] border-white/40 text-white hover:bg-white/10 hover:border-white"
+                        ? "bg-[#ec7b15] text-white hover:bg-white hover:text-[#1b103c] scale-100 hover:scale-105 active:scale-95"
+                        : "bg-white/5 backdrop-blur-xl border border-white/20 text-white hover:bg-white/10 hover:border-white/40"
                     )}
-                    aria-label={label}
-                    title={label}
                   >
-                    {label}
+                    <span className="relative z-10 flex items-center">
+                      {label}
+                      {isPrimary && (
+                        <ArrowRightIcon className="ml-3 w-5 h-5 transition-transform duration-500 group-hover:translate-x-2" color="currentColor" />
+                      )}
+                    </span>
                     {isPrimary && (
-                      <ArrowRightIcon className="ml-3 w-5 h-5 transition-transform group-hover:translate-x-2" color="currentColor" aria-hidden />
+                      <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
                     )}
                   </Link>
                 );
@@ -69,6 +82,16 @@ export const Hero = ({ image, heading, paragraph, buttons }: HeroProps) => {
           )}
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes shimmer {
+          100% { transform: translateX(100%); }
+        }
+        @keyframes ken-burns {
+          from { transform: scale(1); }
+          to { transform: scale(1.15) translate(1%, 1%); }
+        }
+      `}</style>
     </section>
   )
 }

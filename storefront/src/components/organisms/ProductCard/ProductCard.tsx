@@ -39,6 +39,17 @@ export const ProductCard = ({
         className="block h-full flex flex-col"
       >
         <div className="relative w-full h-64 bg-gray-100 overflow-hidden">
+          <div className="absolute top-3 left-3 z-10 flex flex-col gap-2">
+            <div className="bg-[#00d4aa] text-[#1b103c] text-[10px] font-black px-3 py-1 rounded-full shadow-lg flex items-center gap-1.5 uppercase tracking-wider">
+              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+              Glik Garantizado
+            </div>
+            {product?.options?.find(o => o.title?.toLowerCase() === 'estado')?.values?.[0]?.value === 'Nueva' && (
+              <div className="bg-[#ec7b15] text-white text-[10px] font-black px-3 py-1 rounded-full shadow-lg uppercase tracking-wider w-fit">
+                Nueva
+              </div>
+            )}
+          </div>
           {product.thumbnail ? (
             <Image
               priority
