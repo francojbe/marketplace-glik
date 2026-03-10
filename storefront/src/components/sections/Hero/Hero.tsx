@@ -4,6 +4,7 @@ import React from "react"
 import Image from "next/image"
 import { ArrowRightIcon } from "@/icons"
 import LocalizedClientLink from "@/components/molecules/LocalizedLink/LocalizedLink"
+import { NavbarSearch } from "@/components/molecules"
 import { cn } from "@/lib/utils"
 
 type HeroProps = {
@@ -15,7 +16,7 @@ type HeroProps = {
 
 export const Hero = ({ image, heading, paragraph, buttons }: HeroProps) => {
   return (
-    <section className="relative w-full h-[55vh] min-h-[400px] lg:min-h-[480px] flex justify-center mt-0 overflow-hidden bg-[#0a0a0b]">
+    <section className="relative w-full h-[60vh] min-h-[400px] max-h-[500px] flex justify-center mt-0 overflow-hidden bg-[#0a0a0b]">
       {/* Background Image with Ken Burns effect */}
       <Image
         src={decodeURIComponent(image)}
@@ -37,22 +38,22 @@ export const Hero = ({ image, heading, paragraph, buttons }: HeroProps) => {
       <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-[#ec7b15]/20 blur-[120px] rounded-full"></div>
 
       {/* Content Container */}
-      <div className="relative z-10 w-full container mx-auto px-6 lg:px-12 flex flex-col justify-center text-white h-full">
-        <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold text-[9px] tracking-[0.2em] uppercase mb-6 animate-fade-in shadow-xl">
+      <div className="relative z-10 w-full container mx-auto px-4 lg:px-8 flex flex-col justify-center items-center text-center text-white h-full pt-8">
+        <div className="max-w-4xl w-full flex flex-col items-center">
+          <div className="inline-flex items-center gap-2 px-2 py-0.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold text-[10px] tracking-[0.1em] uppercase mb-4 shadow-sm animate-fade-in">
             <span className="w-1.5 h-1.5 rounded-full bg-[#ec7b15] animate-pulse"></span>
             MARKETPLACE Nº1 EN CHILE
           </div>
 
-          <div className="animate-[fade-in-up_1s_ease-out]">
-            <h1 className="font-black mb-4 text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.1] drop-shadow-2xl text-balance">
+          <div className="animate-[fade-in-up_0.8s_ease-out]">
+            <h1 className="font-black mb-3 text-2xl md:text-3xl lg:text-4xl tracking-tight leading-[1.1] drop-shadow-lg text-balance">
               {heading.split(' - ').map((part, i) => (
-                <span key={i} className={cn("block", i === 1 && "text-[#ec7b15] mt-2")}>{part}</span>
+                <span key={i} className={cn("block", i === 1 && "text-[#ec7b15]")}>{part}</span>
               ))}
             </h1>
           </div>
 
-          <p className="text-sm md:text-base lg:text-lg mb-6 font-medium text-gray-300 max-w-2xl leading-relaxed opacity-95 animate-[fade-in-up_1.2s_ease-out]">
+          <p className="text-xs md:text-sm lg:text-base mb-6 font-medium text-gray-300 max-w-xl mx-auto leading-tight opacity-95 animate-[fade-in-up_1s_ease-out]">
             {paragraph.split('Glik garante').map((text, i, arr) => (
               <React.Fragment key={i}>
                 {text}
@@ -63,8 +64,12 @@ export const Hero = ({ image, heading, paragraph, buttons }: HeroProps) => {
             ))}
           </p>
 
+          <div className="w-full max-w-2xl mx-auto mb-6 animate-[fade-in-up_1.2s_ease-out]">
+             <NavbarSearch />
+          </div>
+
           {buttons.length > 0 && (
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-row justify-center gap-3">
               {buttons.map(({ label, path }, index) => {
                 const isPrimary = index === 0;
                 return (
@@ -72,21 +77,18 @@ export const Hero = ({ image, heading, paragraph, buttons }: HeroProps) => {
                     key={path}
                     href={path}
                     className={cn(
-                      "group flex items-center justify-center px-6 py-2.5 rounded-xl font-black text-[11px] md:text-xs transition-all duration-500 uppercase tracking-[1.5px] shadow-2xl overflow-hidden relative",
+                      "group flex items-center justify-center px-4 py-2 rounded-sm font-bold text-[11px] transition-all duration-300 uppercase shadow-md overflow-hidden relative",
                       isPrimary
-                        ? "bg-[#ec7b15] text-white hover:bg-white hover:text-[#1b103c] scale-100 hover:scale-105 active:scale-95"
-                        : "bg-white/5 backdrop-blur-xl border border-white/20 text-white hover:bg-white/10 hover:border-white/40"
+                        ? "bg-[#ec7b15] text-white hover:bg-[#d06b0d]"
+                        : "bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20"
                     )}
                   >
                     <span className="relative z-10 flex items-center">
                       {label}
                       {isPrimary && (
-                        <ArrowRightIcon className="ml-3 w-5 h-5 transition-transform duration-500 group-hover:translate-x-2" color="currentColor" />
+                        <ArrowRightIcon className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" color="currentColor" />
                       )}
                     </span>
-                    {isPrimary && (
-                      <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-                    )}
                   </LocalizedClientLink>
                 );
               })}

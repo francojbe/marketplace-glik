@@ -3,6 +3,7 @@ import { HttpTypes } from "@medusajs/types"
 
 import { CartDropdown, MobileNavbar, Navbar } from "@/components/cells"
 import { HeartIcon } from "@/icons"
+import { NavbarSearch } from "@/components/molecules"
 import { UserDropdown } from "@/components/cells/UserDropdown/UserDropdown"
 import { Wishlist } from "@/types/wishlist"
 import { Badge } from "@/components/atoms"
@@ -53,9 +54,9 @@ export const Header = async ({ locale }: {
 
       {/* STICKY WRAPPER - This stays at the top */}
       <div className="sticky top-0 z-50 shadow-md bg-[#1b103c]">
-        <div className="flex justify-between items-center py-2.5 lg:px-8 px-4 md:px-5 border-b border-white/10" data-testid="header-top">
+        <div className="flex justify-between items-center py-2 lg:px-6 px-4 border-b border-white/10" data-testid="header-top">
           {/* LOGO - LEFT */}
-          <div className="flex items-center shrink-0">
+          <div className="flex items-center shrink-0 w-[20%]">
             <MobileNavbar
               parentCategories={parentCategories}
               categories={categories}
@@ -69,22 +70,19 @@ export const Header = async ({ locale }: {
                 className="object-contain hover:scale-105 transition-transform duration-300"
                 priority
               />
-              <div className="hidden sm:flex items-center bg-[#00d4aa]/10 border border-[#00d4aa]/20 px-3 py-1 rounded-full text-[9px] font-black text-[#00d4aa] tracking-tighter uppercase whitespace-nowrap">
-                🏆 MARKETPLACE N°1 EN CHILE
+              <div className="hidden sm:flex items-center bg-[#00d4aa]/10 border border-[#00d4aa]/20 px-2 py-0.5 rounded-full text-[9px] font-bold text-[#00d4aa] tracking-tighter uppercase whitespace-nowrap">
+                🏆 N°1 EN CHILE
               </div>
             </LocalizedClientLink>
           </div>
 
-          {/* NAVIGATION - CENTER */}
-          <div className="hidden lg:flex items-center justify-center flex-1 mx-6 border-none">
-            <ParentCategoryLinks
-              parentCategories={parentCategories}
-              categories={categories}
-            />
+          {/* SEARCH - CENTER */}
+          <div className="hidden lg:flex items-center justify-center flex-1 mx-4 max-w-2xl border-none">
+             <NavbarSearch />
           </div>
 
           {/* ACTIONS - RIGHT */}
-          <div className="flex items-center justify-end gap-3 lg:gap-5 shrink-0" data-testid="header-actions">
+          <div className="flex items-center justify-end gap-2 lg:gap-4 shrink-0 w-[20%]" data-testid="header-actions">
             <CountrySelector regions={regions} />
             {isLoggedIn && <MessageButton />}
             <UserDropdown isLoggedIn={isLoggedIn} />

@@ -3,8 +3,8 @@ import { ProductPageAccordion } from '@/components/molecules';
 export const ProductDetailsShipping = () => {
   return (
     <ProductPageAccordion
-      heading='Entregas y Devoluciones'
-      defaultOpen={false}
+      heading='Información de Entrega'
+      defaultOpen={true}
     >
       <div className='product-details'>
         <ul>

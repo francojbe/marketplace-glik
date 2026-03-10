@@ -54,7 +54,7 @@ export const Chat = ({
         className={buttonClassNames}
         size={buttonSize}
       >
-        {icon ? <MessageIcon size={20} /> : 'Write to seller'}
+        {icon ? <MessageIcon size={20} /> : 'Contactar Vendedor'}
       </Button>
       {modal && (
         <Modal

@@ -83,6 +83,7 @@ const ProductsListing = ({
   const [isLoading, setIsLoading] = useState(true)
   const [count, setCount] = useState(0)
   const [pages, setPages] = useState(1)
+  const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
 
   const searchParams = useSearchParams()
 
@@ -129,16 +130,39 @@ const ProductsListing = ({
         <ProductListingActiveFilters />
       </div>
       <div className="md:flex gap-4">
-        <div className="w-[280px] flex-shrink-0 hidden md:block">
+        <div className="w-[220px] flex-shrink-0 hidden md:block">
           <AlgoliaProductSidebar facets={facets} />
         </div>
-        <div className="w-full flex flex-col">
+          <div className="flex justify-between w-full items-center mb-4 bg-gray-50 p-2 rounded-sm border border-gray-100">
+            <div className="label-md font-semibold text-gray-700">{`${count} motos encontradas`}</div>
+            <div className="flex border border-gray-200 rounded-xs overflow-hidden">
+              <button 
+                onClick={() => setViewMode("grid")}
+                className={cn(
+                  "px-3 py-1 text-xs font-medium uppercase transition-colors",
+                  viewMode === "grid" ? "bg-primary text-white" : "bg-white text-gray-600 hover:bg-gray-50"
+                )}
+              >
+                Grid
+              </button>
+              <button 
+                onClick={() => setViewMode("list")}
+                className={cn(
+                  "px-3 py-1 text-xs font-medium uppercase transition-colors border-l border-gray-200",
+                  viewMode === "list" ? "bg-primary text-white" : "bg-white text-gray-600 hover:bg-gray-50"
+                )}
+              >
+                List
+              </button>
+            </div>
+          </div>
+
           {isLoading && <ProductListingLoadingView />}
 
           {!isLoading && !products.length && <ProductListingNoResultsView />}
 
           {!isLoading && products.length > 0 && (
-            <ProductListingProductsView products={products} />
+            <ProductListingProductsView products={products} viewMode={viewMode} />
           )}
 
           <div className="mt-auto">
@@ -146,6 +170,5 @@ const ProductsListing = ({
           </div>
         </div>
       </div>
-    </div>
   )
 }
