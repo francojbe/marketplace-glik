@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image"
 import { ArrowRightIcon } from "@/icons"
 import Link from "next/link"
