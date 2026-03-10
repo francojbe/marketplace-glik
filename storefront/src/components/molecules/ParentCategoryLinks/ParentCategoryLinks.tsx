@@ -11,7 +11,7 @@ interface ParentCategoryLinksProps {
   categories: HttpTypes.StoreProductCategory[]
 }
 
-export const ParentCategoryLinks = ({ parentCategories, categories }: ParentCategoryLinksProps) => {
+export const ParentCategoryLinks = () => {
   const links = [
     { label: "INICIO", href: "/" },
     { label: "NUESTROS PRODUCTOS", href: "/categories/motos" },

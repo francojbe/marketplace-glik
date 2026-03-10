@@ -13,7 +13,7 @@ import { listCategories } from "@/lib/data/categories"
 import { listRegions } from "@/lib/data/regions"
 import { getUserWishlists } from "@/lib/data/wishlist"
 import { retrieveCustomer } from "@/lib/data/customer"
-import { ParentCategoryLinks } from "@/components/molecules/ParentCategoryLinks/ParentCategoryLinks"
+import { ParentCategoryLinks } from "@/components/molecules"
 
 export const Header = async ({ locale }: {
   locale: string
@@ -23,16 +23,22 @@ export const Header = async ({ locale }: {
 
   let wishlist: Wishlist = { products: [] }
   if (user) {
-    wishlist = await getUserWishlists({ countryCode: locale })
+    wishlist = await getUserWishlists({ countryCode: locale }).catch(() => ({ products: [] }))
   }
 
-  const regions = await listRegions()
+  const regions = await listRegions().catch(() => [])
 
   const wishlistCount = wishlist?.products.length || 0
 
-  const { categories, parentCategories } = (await listCategories({ query: { include_ancestors_tree: true } })) as {
-    categories: HttpTypes.StoreProductCategory[]
-    parentCategories: HttpTypes.StoreProductCategory[]
+  let categories: HttpTypes.StoreProductCategory[] = []
+  let parentCategories: HttpTypes.StoreProductCategory[] = []
+
+  try {
+    const data = await listCategories({ query: { include_ancestors_tree: true } })
+    categories = data.categories
+    parentCategories = data.parentCategories
+  } catch (err) {
+    console.error("Error fetching categories:", err)
   }
   return (
     <header data-testid="header" className="relative z-50">
