@@ -6,9 +6,9 @@ const links = {
     { label: 'Financiamiento', path: '/contacto' },
   ],
   about: [
-    { label: 'Quiénes Somos', path: '/quienes-somos' },
-    { label: 'Blog', path: '/blog' },
-    { label: 'Privacidad', path: '/privacy-policy' },
+    { label: 'Quiénes Somos', path: '/' },
+    { label: 'Blog', path: '/' },
+    { label: 'Privacidad', path: '/' },
     { label: 'Términos', path: '/terms-and-conditions' },
   ],
   connect: [

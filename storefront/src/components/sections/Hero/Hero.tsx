@@ -3,7 +3,7 @@ import React from "react"
 
 import Image from "next/image"
 import { ArrowRightIcon } from "@/icons"
-import Link from "next/link"
+import LocalizedClientLink from "@/components/modules/common/components/localized-client-link"
 import { cn } from "@/lib/utils"
 
 type HeroProps = {
@@ -68,7 +68,7 @@ export const Hero = ({ image, heading, paragraph, buttons }: HeroProps) => {
               {buttons.map(({ label, path }, index) => {
                 const isPrimary = index === 0;
                 return (
-                  <Link
+                  <LocalizedClientLink
                     key={path}
                     href={path}
                     className={cn(
@@ -87,7 +87,7 @@ export const Hero = ({ image, heading, paragraph, buttons }: HeroProps) => {
                     {isPrimary && (
                       <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
                     )}
-                  </Link>
+                  </LocalizedClientLink>
                 );
               })}
             </div>

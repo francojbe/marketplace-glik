@@ -3,23 +3,21 @@ import { ProductPageAccordion } from '@/components/molecules';
 export const ProductDetailsShipping = () => {
   return (
     <ProductPageAccordion
-      heading='Shipping & Returns'
+      heading='Entregas y Devoluciones'
       defaultOpen={false}
     >
       <div className='product-details'>
         <ul>
           <li>
-            Free standard shipping on all orders within the
-            continental U.S. Expedited shipping options are
-            available at an additional cost. Orders
-            typically ship within 3-5 business days.
+            Realizamos entregas a todas las regiones con un costo 
+            adicional. Las entregas en la Región Metropolitana 
+            pueden tardar entre 2 a 5 días hábiles, mientras 
+            que a regiones puede tomar hasta 10 días hábiles.
           </li>
           <li>
-            We offer a 30-day return policy. If you are not
-            completely satisfied with your purchase, you can
-            return the chair for a full refund or exchange,
-            provided it is in its original condition and
-            packaging.
+            Contamos con garantía de satisfacción. Si la moto presenta 
+            algún problema de fábrica, puedes gestionar el cambio o 
+            devolución siguiendo nuestros términos y condiciones.
           </li>
         </ul>
       </div>
