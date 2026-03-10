@@ -24,9 +24,9 @@ export function ShopByStyleSection() {
             <LocalizedClientLink
               key={style.id}
               href={style.href}
-              className="group relative flex flex-col justify-end p-8 border rounded-2xl h-[200px] overflow-hidden bg-gray-50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-gray-100"
+              className="group relative flex flex-col justify-end p-6 border rounded-2xl h-[160px] overflow-hidden bg-gray-50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-gray-100"
             >
-              <div className="absolute top-6 right-6 text-4xl opacity-20 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500 transform grayscale group-hover:grayscale-0">
+              <div className="absolute top-4 right-4 text-4xl opacity-20 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500 transform grayscale group-hover:grayscale-0">
                 {style.icon}
               </div>
               <div className="relative z-10">

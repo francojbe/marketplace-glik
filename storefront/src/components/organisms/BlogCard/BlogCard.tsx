@@ -34,7 +34,7 @@ export function BlogCard({ post, index }: BlogCardProps) {
           </span>
         </div>
       </div>
-      <div className="p-6 flex flex-col justify-between flex-1">
+      <div className="p-5 flex flex-col justify-between flex-1">
         <div>
           <div className="flex items-center gap-2 mb-3">
             <span className="text-[11px] font-bold text-gray-400 uppercase tracking-tighter">Por Glik</span>

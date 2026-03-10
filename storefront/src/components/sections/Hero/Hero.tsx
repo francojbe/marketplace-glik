@@ -15,7 +15,7 @@ type HeroProps = {
 
 export const Hero = ({ image, heading, paragraph, buttons }: HeroProps) => {
   return (
-    <section className="relative w-full h-[85vh] min-h-[600px] lg:min-h-[750px] flex justify-center mt-0 overflow-hidden bg-[#0a0a0b]">
+    <section className="relative w-full h-[70vh] min-h-[500px] lg:min-h-[600px] flex justify-center mt-0 overflow-hidden bg-[#0a0a0b]">
       {/* Background Image with Ken Burns effect */}
       <Image
         src={decodeURIComponent(image)}
@@ -39,20 +39,20 @@ export const Hero = ({ image, heading, paragraph, buttons }: HeroProps) => {
       {/* Content Container */}
       <div className="relative z-10 w-full container mx-auto px-6 lg:px-12 flex flex-col justify-center text-white h-full">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold text-[10px] tracking-[0.2em] uppercase mb-8 animate-fade-in shadow-xl">
-            <span className="w-2 h-2 rounded-full bg-[#ec7b15] animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold text-[9px] tracking-[0.2em] uppercase mb-6 animate-fade-in shadow-xl">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#ec7b15] animate-pulse"></span>
             MARKETPLACE Nº1 EN CHILE
           </div>
 
           <div className="animate-[fade-in-up_1s_ease-out]">
-            <h1 className="font-black mb-6 text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1] drop-shadow-2xl text-balance">
+            <h1 className="font-black mb-4 text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1] drop-shadow-2xl text-balance">
               {heading.split(' - ').map((part, i) => (
                 <span key={i} className={cn("block", i === 1 && "text-[#ec7b15] mt-2")}>{part}</span>
               ))}
             </h1>
           </div>
 
-          <p className="text-lg md:text-xl lg:text-2xl mb-12 font-medium text-gray-300 max-w-2xl leading-relaxed opacity-95 animate-[fade-in-up_1.2s_ease-out]">
+          <p className="text-base md:text-lg lg:text-xl mb-8 font-medium text-gray-300 max-w-2xl leading-relaxed opacity-95 animate-[fade-in-up_1.2s_ease-out]">
             {paragraph.split('Glik garante').map((text, i, arr) => (
               <React.Fragment key={i}>
                 {text}
@@ -64,7 +64,7 @@ export const Hero = ({ image, heading, paragraph, buttons }: HeroProps) => {
           </p>
 
           {buttons.length > 0 && (
-            <div className="flex flex-col sm:flex-row gap-5">
+            <div className="flex flex-col sm:flex-row gap-4">
               {buttons.map(({ label, path }, index) => {
                 const isPrimary = index === 0;
                 return (
@@ -72,7 +72,7 @@ export const Hero = ({ image, heading, paragraph, buttons }: HeroProps) => {
                     key={path}
                     href={path}
                     className={cn(
-                      "group flex items-center justify-center px-10 py-5 rounded-2xl font-black text-sm md:text-base transition-all duration-500 uppercase tracking-[2px] shadow-2xl overflow-hidden relative",
+                      "group flex items-center justify-center px-8 py-3.5 rounded-xl font-black text-xs md:text-sm transition-all duration-500 uppercase tracking-[1.5px] shadow-2xl overflow-hidden relative",
                       isPrimary
                         ? "bg-[#ec7b15] text-white hover:bg-white hover:text-[#1b103c] scale-100 hover:scale-105 active:scale-95"
                         : "bg-white/5 backdrop-blur-xl border border-white/20 text-white hover:bg-white/10 hover:border-white/40"

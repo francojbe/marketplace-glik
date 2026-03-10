@@ -7,7 +7,7 @@ export const BannerSection = () => {
     <section className="bg-tertiary container text-tertiary">
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
         <div className="py-6 px-6 md:p-10 flex flex-col h-full justify-between border border-[#003087]/20 rounded-xl bg-gradient-to-br from-white to-gray-50">
-          <div className="mb-8 lg:mb-32">
+          <div className="mb-8 lg:mb-8">
             <span className="text-xs font-bold text-[#003087] bg-[#003087]/10 tracking-widest inline-block px-4 py-1.5 rounded-full mb-4">
               #MOVILIDAD
             </span>

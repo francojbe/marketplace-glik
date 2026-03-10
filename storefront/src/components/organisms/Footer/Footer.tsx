@@ -4,9 +4,9 @@ import footerLinks from "@/data/footerLinks"
 
 export function Footer() {
   return (
-    <footer className="bg-[#1b103c] text-white pt-24 pb-12 overflow-hidden relative" data-testid="footer">
+    <footer className="bg-[#1b103c] text-white pt-16 pb-8 overflow-hidden relative" data-testid="footer">
       <div className="container px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand & Newsletter Column */}
           <div className="flex flex-col gap-8">
             <LocalizedClientLink href="/">
@@ -99,7 +99,7 @@ export function Footer() {
         </div>
 
         {/* Trust Badges */}
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 py-12 border-y border-white/5 mb-12">
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 py-8 border-y border-white/5 mb-8">
           <div className="flex items-center gap-3">
             <span className="text-2xl">🔒</span>
             <div className="flex flex-col">
@@ -137,13 +137,13 @@ export function Footer() {
       <a
         href="https://wa.me/56912345678"
         target="_blank"
-        className="fixed bottom-8 right-8 z-[100] bg-[#00d4aa] text-[#1b103c] w-16 h-16 rounded-full flex items-center justify-center shadow-[0_10px_40px_rgba(0,212,170,0.4)] hover:scale-110 transition-all group"
+        className="fixed bottom-6 right-6 z-[100] bg-[#00d4aa] text-[#1b103c] w-14 h-14 rounded-full flex items-center justify-center shadow-[0_10px_40px_rgba(0,212,170,0.4)] hover:scale-110 transition-all group"
         aria-label="Contactar por WhatsApp"
       >
         <span className="absolute -left-32 bg-[#1b103c] text-white text-[10px] font-black px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-all translate-x-4 group-hover:translate-x-0 pointer-events-none uppercase tracking-widest border border-white/10">
           ¿Necesitas ayuda?
         </span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
         </svg>
       </a>

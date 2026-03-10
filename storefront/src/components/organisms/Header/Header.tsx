@@ -43,11 +43,11 @@ export const Header = async ({ locale }: {
   return (
     <header data-testid="header" className="relative z-50">
       {/* GLIK TOP BANNER - This moves with scroll */}
-      <div className="bg-[#003087] text-white py-1.5 text-center w-full shadow-[0_2px_10px_rgba(0,0,0,0.2)] relative z-20 overflow-hidden">
-        <div className="container flex justify-center items-center gap-4">
-          <h1 className="text-xs md:text-sm font-bold tracking-wider">GLIK MOTOS MARKETPLACE</h1>
-          <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-[#00d4aa]"></div>
-          <p className="text-[9px] md:text-[10px] opacity-90 uppercase font-medium">Compra motos en cuotas seguras con Glik garante</p>
+      <div className="bg-[#003087] text-white py-1 text-center w-full shadow-sm relative z-20 overflow-hidden">
+        <div className="container flex justify-center items-center gap-2 md:gap-3">
+          <h1 className="text-[9px] md:text-[11px] font-bold tracking-widest leading-none">GLIK MOTOS MARKETPLACE</h1>
+          <div className="hidden md:block w-1 h-1 rounded-full bg-[#00d4aa]"></div>
+          <p className="text-[8px] md:text-[9px] opacity-90 uppercase font-medium leading-none mt-[1px]">Compra motos en cuotas seguras con Glik garante</p>
         </div>
       </div>
 

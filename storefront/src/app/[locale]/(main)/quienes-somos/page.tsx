@@ -1,6 +1,6 @@
 export default function QuienesSomosPage() {
     return (
-        <main className="container py-24 min-h-[70vh]">
+        <main className="container py-12 md:py-16 min-h-[70vh]">
             <div className="max-w-3xl mx-auto">
                 <h1 className="text-4xl font-black mb-8 uppercase italic border-b-4 border-[#ec7b15] w-fit">
                     Quiénes Somos
