@@ -93,7 +93,7 @@ export const CategoryNavbar = ({
         data-testid="category-navbar"
       >
         <LocalizedClientLink
-          href="/store"
+          href="/categories"
           onClick={handleClose}
           className={cn(
             "label-md uppercase px-2 my-1 md:my-0 flex items-center justify-between md:flex-shrink-0 text-white hover:text-[#00d4aa] transition-colors font-bold"

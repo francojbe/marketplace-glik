@@ -165,7 +165,7 @@ export default async function Home({
         heading="Glik Motos - El marketplace de motos en cuotas"
         paragraph="Compra y vende motos con la seguridad de Glik como garante."
         buttons={[
-          { label: "Comprar ahora", path: "/store" },
+          { label: "Comprar ahora", path: "/categories" },
           {
             label: "Vender ahora",
             path:

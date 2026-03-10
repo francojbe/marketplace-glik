@@ -14,7 +14,7 @@ interface ParentCategoryLinksProps {
 export const ParentCategoryLinks = () => {
   const links = [
     { label: "INICIO", href: "/" },
-    { label: "NUESTROS PRODUCTOS", href: "/store" },
+    { label: "NUESTROS PRODUCTOS", href: "/categories" },
     { label: "¿CÓMO ARRENDAR?", href: "#" },
     { label: "¿QUIÉNES SOMOS?", href: "#" },
     { label: "CONTÁCTANOS", href: "#" },
