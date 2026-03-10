@@ -26,74 +26,68 @@ export const ProductCard = ({
   return (
     <div
       className={cn(
-        "relative group border rounded-sm flex flex-col justify-between p-1 w-full lg:w-[calc(25%-1rem)] min-w-[250px]",
+        "group border rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between w-full bg-white overflow-hidden",
         className
       )}
       data-testid="product-card"
       data-product-handle={product.handle}
     >
-      <div className="relative w-full h-full bg-primary aspect-square" data-testid="product-card-image-container">
-        <LocalizedClientLink
-          href={`/products/${product.handle}`}
-          aria-label={`View ${productName}`}
-          title={`View ${productName}`}
-          data-testid="product-card-link"
-        >
-          <div className="overflow-hidden rounded-sm w-full h-full flex justify-center align-center ">
-            {product.thumbnail ? (
-              <Image
-                priority
-                fetchPriority="high"
-                src={decodeURIComponent(product.thumbnail)}
-                alt={`${productName} image`}
-                width={100}
-                height={100}
-                sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                className="object-cover aspect-square w-full object-center h-full lg:group-hover:-mt-14 transition-all duration-300 rounded-xs"
-                data-testid="product-card-image"
-              />
-            ) : (
-              <Image
-                priority
-                fetchPriority="high"
-                src="/images/placeholder.svg"
-                alt={`${productName} image placeholder`}
-                width={100}
-                height={100}
-                sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                data-testid="product-card-placeholder-image"
-              />
-            )}
-          </div>
-        </LocalizedClientLink>
-        <LocalizedClientLink
-          href={`/products/${product.handle}`}
-          aria-label={`See more about ${productName}`}
-          title={`See more about ${productName}`}
-        >
-          <Button className="absolute rounded-sm bg-action text-action-on-primary h-auto lg:h-[48px] lg:group-hover:block hidden w-full uppercase bottom-1 z-10" data-testid="product-card-see-more-button">
-            See More
-          </Button>
-        </LocalizedClientLink>
-      </div>
       <LocalizedClientLink
         href={`/products/${product.handle}`}
-        aria-label={`Go to ${productName} page`}
-        title={`Go to ${productName} page`}
+        aria-label={`Ver ${productName}`}
+        title={`Ver ${productName}`}
+        className="block"
       >
-        <div className="flex justify-between p-4" data-testid="product-card-info">
-          <div className="w-full">
-            <h3 className="heading-sm truncate" data-testid="product-card-title">{product.title}</h3>
-            <div className="flex items-center gap-2 mt-2" data-testid="product-card-price">
-              <p className="font-medium" data-testid="product-card-current-price">{cheapestPrice?.calculated_price}</p>
-              {cheapestPrice?.calculated_price !==
-                cheapestPrice?.original_price && (
-                <p className="text-sm text-gray-500 line-through" data-testid="product-card-original-price">
-                  {cheapestPrice?.original_price}
-                </p>
-              )}
-            </div>
+        <div className="relative w-full h-64 bg-gray-100">
+          {product.thumbnail ? (
+            <Image
+              priority
+              fetchPriority="high"
+              src={decodeURIComponent(product.thumbnail)}
+              alt={`${productName} image`}
+              fill
+              sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+              className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+            />
+          ) : (
+            <Image
+              priority
+              fetchPriority="high"
+              src="/images/placeholder.svg"
+              alt={`${productName} image placeholder`}
+              fill
+              sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+              className="object-cover"
+            />
+          )}
+        </div>
+
+        <div className="p-4 flex flex-col">
+          <h3 className="font-bold text-xl mb-2 text-gray-900 truncate" title={productName}>
+            {product.title}
+          </h3>
+
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-2xl font-bold text-[#003087]">
+              {cheapestPrice?.calculated_price || 'Precio en tienda'}
+            </span>
+            {cheapestPrice?.calculated_price !== cheapestPrice?.original_price && (
+              <span className="text-sm text-gray-500 line-through">
+                {cheapestPrice?.original_price}
+              </span>
+            )}
           </div>
+
+          <div className="grid grid-cols-2 gap-2 text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-md">
+            <span>📅 {product?.options?.find(o => o.title?.toLowerCase() === 'año')?.values?.[0]?.value || '2024'}</span>
+            <span>🛣️ {product?.options?.find(o => o.title?.toLowerCase() === 'estado' || o.title?.toLowerCase() === 'kilometraje')?.values?.[0]?.value === 'Nueva' ? '0 km' : 'Usada'}</span>
+            <span>🏍️ {product?.options?.find(o => o.title?.toLowerCase() === 'cilindrada')?.values?.[0]?.value || 'Motor'}</span>
+            <span className="truncate">🏷️ {product?.options?.find(o => o.title?.toLowerCase() === 'marca')?.values?.[0]?.value || 'Glik Moto'}</span>
+          </div>
+
+          <button className="w-full bg-[#003087] text-white py-2.5 rounded hover:bg-[#00286b] transition-colors font-semibold uppercase text-sm">
+            Ver Moto
+          </button>
         </div>
       </LocalizedClientLink>
     </div>

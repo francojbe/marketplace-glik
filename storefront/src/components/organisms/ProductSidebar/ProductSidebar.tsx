@@ -46,13 +46,55 @@ export const ProductSidebar = () => {
         )}
 
         <div
-          className="no-scrollbar h-[calc(100vh-200px)] overflow-y-scroll px-2 md:h-full md:overflow-y-auto md:px-0"
+          className="no-scrollbar h-[calc(100vh-200px)] overflow-y-scroll px-2 md:h-full md:overflow-y-auto md:px-0 bg-white p-6 rounded-lg shadow"
           data-testid="sidebar-filters"
         >
-          <PriceFilter />
-          <SizeFilter />
-          <ColorFilter />
-          <ConditionFilter />
+          <h3 className="font-bold text-lg mb-6">Filtros</h3>
+
+          {/* Precio */}
+          <div className="mb-6">
+            <label className="block font-semibold mb-2">Precio</label>
+            <input type="range" className="w-full accent-[#003087]" min="1000000" max="20000000" />
+            <div className="text-sm text-gray-600 mt-1 flex justify-between">
+              <span>$1.000.000</span>
+              <span>$20.000.000</span>
+            </div>
+          </div>
+
+          {/* Año */}
+          <div className="mb-6">
+            <label className="block font-semibold mb-2">Año</label>
+            <input type="range" className="w-full accent-[#003087]" min="2018" max="2026" />
+            <div className="text-sm text-gray-600 mt-1 flex justify-between">
+              <span>2018</span>
+              <span>2026</span>
+            </div>
+          </div>
+
+          {/* Km */}
+          <div className="mb-6">
+            <label className="block font-semibold mb-2">Km</label>
+            <input type="range" className="w-full accent-[#003087]" min="0" max="50000" />
+            <div className="text-sm text-gray-600 mt-1 flex justify-between">
+              <span>0 km</span>
+              <span>50,000 km</span>
+            </div>
+          </div>
+
+          {/* Marcas */}
+          <div className="mb-6">
+            <label className="block font-semibold mb-2">Marcas</label>
+            {['Yamaha', 'Honda', 'Suzuki', 'Kawasaki', 'Bajaj', 'Glik Moto'].map(marca => (
+              <div key={marca} className="flex items-center mb-2">
+                <input type="checkbox" id={`marca-${marca}`} className="mr-2 accent-[#003087] h-4 w-4" />
+                <label htmlFor={`marca-${marca}`} className="text-sm text-gray-700">{marca}</label>
+              </div>
+            ))}
+          </div>
+
+          <button className="w-full bg-[#003087] text-white py-2 rounded hover:bg-[#00286b] font-semibold">
+            Activar Filtros
+          </button>
         </div>
         <div
           className="absolute bottom-0 left-0 flex w-full items-center gap-2 border-y bg-primary px-4 py-4 md:hidden"

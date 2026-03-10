@@ -52,9 +52,9 @@ export const ProductDetailsHeader = ({
   // set default variant
   const selectedVariant = hasAnyPrice
     ? {
-        ...optionsAsKeymap(cheapestVariant.options ?? null),
-        ...allSearchParams,
-      }
+      ...optionsAsKeymap(cheapestVariant.options ?? null),
+      ...allSearchParams,
+    }
     : allSearchParams
 
   // get selected variant id
@@ -138,10 +138,10 @@ export const ProductDetailsHeader = ({
                 </span>
                 {variantPrice.calculated_price_number !==
                   variantPrice.original_price_number && (
-                  <span className="label-md text-secondary line-through" data-testid="product-price-original">
-                    {variantPrice.original_price}
-                  </span>
-                )}
+                    <span className="label-md text-secondary line-through" data-testid="product-price-original">
+                      {variantPrice.original_price}
+                    </span>
+                  )}
               </>
             ) : (
               <span className="label-md text-secondary pt-2 pb-4" data-testid="product-price-unavailable">
@@ -159,6 +159,33 @@ export const ProductDetailsHeader = ({
           />
         </div>
       </div>
+      <div className="w-full mb-6 text-sm text-gray-700 bg-gray-50 rounded-lg p-4 mt-4">
+        <table className="w-full text-left">
+          <tbody>
+            <tr className="border-b border-gray-200">
+              <td className="py-2 font-semibold">Año:</td>
+              <td className="py-2 text-right">{product?.options?.find(o => o.title?.toLowerCase() === 'año')?.values?.[0]?.value || '2024'}</td>
+            </tr>
+            <tr className="border-b border-gray-200">
+              <td className="py-2 font-semibold">Kilometraje:</td>
+              <td className="py-2 text-right">{product?.options?.find(o => o.title?.toLowerCase() === 'estado' || o.title?.toLowerCase() === 'kilometraje')?.values?.[0]?.value === 'Nueva' ? '0 km' : 'Usada'}</td>
+            </tr>
+            <tr className="border-b border-gray-200">
+              <td className="py-2 font-semibold">Cilindrada:</td>
+              <td className="py-2 text-right">{product?.options?.find(o => o.title?.toLowerCase() === 'cilindrada')?.values?.[0]?.value || 'Motor'}</td>
+            </tr>
+            <tr className="border-b border-gray-200">
+              <td className="py-2 font-semibold">Marca:</td>
+              <td className="py-2 text-right">{product?.options?.find(o => o.title?.toLowerCase() === 'marca')?.values?.[0]?.value || 'Glik Moto'}</td>
+            </tr>
+            <tr>
+              <td className="py-2 font-semibold">Papeles:</td>
+              <td className="py-2 text-right">✅ Al día</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
       {/* Product Variants */}
       {hasAnyPrice && (
         <ProductVariants product={product} selectedVariant={selectedVariant} />
@@ -168,15 +195,15 @@ export const ProductDetailsHeader = ({
         onClick={handleAddToCart}
         disabled={isAddToCartDisabled}
         loading={isAddingItem}
-        className="w-full uppercase mb-4 py-3 flex justify-center"
+        className="w-full bg-[#003087] text-white py-3 text-lg rounded-lg hover:bg-[#00286b] uppercase mb-4 flex justify-center"
         size="large"
         data-testid="product-add-to-cart-button"
       >
         {!hasAnyPrice
-          ? "NOT AVAILABLE IN YOUR REGION"
+          ? "NO DISPONIBLE EN SU REGIÓN"
           : variantStock && variantHasPrice
-          ? "ADD TO CART"
-          : "OUT OF STOCK"}
+            ? "COMPRAR AHORA"
+            : "AGOTADO"}
       </Button>
       {/* Seller message */}
 
