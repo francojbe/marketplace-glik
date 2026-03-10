@@ -26,7 +26,7 @@ export const ProductCard = ({
   return (
     <div
       className={cn(
-        "group border rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between w-full bg-white overflow-hidden",
+        "group border border-gray-200 rounded-xl shadow-sm hover:shadow-xl hover:border-[#00d4aa]/50 transition-all duration-300 flex flex-col justify-between w-full bg-white overflow-hidden cursor-pointer",
         className
       )}
       data-testid="product-card"
@@ -36,9 +36,9 @@ export const ProductCard = ({
         href={`/products/${product.handle}`}
         aria-label={`Ver ${productName}`}
         title={`Ver ${productName}`}
-        className="block"
+        className="block h-full flex flex-col"
       >
-        <div className="relative w-full h-64 bg-gray-100">
+        <div className="relative w-full h-64 bg-gray-100 overflow-hidden">
           {product.thumbnail ? (
             <Image
               priority
@@ -47,7 +47,7 @@ export const ProductCard = ({
               alt={`${productName} image`}
               fill
               sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-              className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+              className="object-cover w-full h-full xl:transition-transform xl:duration-500 xl:group-hover:scale-110"
             />
           ) : (
             <Image
@@ -62,31 +62,31 @@ export const ProductCard = ({
           )}
         </div>
 
-        <div className="p-4 flex flex-col">
-          <h3 className="font-bold text-xl mb-2 text-gray-900 truncate" title={productName}>
+        <div className="p-5 flex flex-col flex-1">
+          <h3 className="font-bold text-lg leading-tight mb-2 text-[#1b103c] line-clamp-2 min-h-[44px]" title={productName}>
             {product.title}
           </h3>
 
-          <div className="flex items-center gap-2 mb-3">
-            <span className="text-2xl font-bold text-[#003087]">
+          <div className="flex items-end gap-2 mb-4">
+            <span className="text-2xl font-black tracking-tight text-[#1b103c]">
               {cheapestPrice?.calculated_price || 'Precio en tienda'}
             </span>
             {cheapestPrice?.calculated_price !== cheapestPrice?.original_price && (
-              <span className="text-sm text-gray-500 line-through">
+              <span className="text-sm text-gray-400 line-through mb-1">
                 {cheapestPrice?.original_price}
               </span>
             )}
           </div>
 
-          <div className="grid grid-cols-2 gap-2 text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-md">
-            <span>📅 {product?.options?.find(o => o.title?.toLowerCase() === 'año')?.values?.[0]?.value || '2024'}</span>
-            <span>🛣️ {product?.options?.find(o => o.title?.toLowerCase() === 'estado' || o.title?.toLowerCase() === 'kilometraje')?.values?.[0]?.value === 'Nueva' ? '0 km' : 'Usada'}</span>
-            <span>🏍️ {product?.options?.find(o => o.title?.toLowerCase() === 'cilindrada')?.values?.[0]?.value || 'Motor'}</span>
-            <span className="truncate">🏷️ {product?.options?.find(o => o.title?.toLowerCase() === 'marca')?.values?.[0]?.value || 'Glik Moto'}</span>
+          <div className="grid grid-cols-2 gap-2 text-xs text-gray-600 mb-6 bg-gray-50/80 p-3 rounded-lg border border-gray-100 mt-auto">
+            <span className="flex items-center gap-1.5"><span className="text-base">📅</span> {product?.options?.find(o => o.title?.toLowerCase() === 'año')?.values?.[0]?.value || '2024'}</span>
+            <span className="flex items-center gap-1.5"><span className="text-base">🛣️</span> {product?.options?.find(o => o.title?.toLowerCase() === 'estado' || o.title?.toLowerCase() === 'kilometraje')?.values?.[0]?.value === 'Nueva' ? '0 km' : 'Usada'}</span>
+            <span className="flex items-center gap-1.5"><span className="text-base">🏍️</span> {product?.options?.find(o => o.title?.toLowerCase() === 'cilindrada')?.values?.[0]?.value || 'Motor'}</span>
+            <span className="flex items-center gap-1.5 truncate"><span className="text-base">🏷️</span> {product?.options?.find(o => o.title?.toLowerCase() === 'marca')?.values?.[0]?.value || 'Glik Moto'}</span>
           </div>
 
-          <button className="w-full bg-[#003087] text-white py-2.5 rounded hover:bg-[#00286b] transition-colors font-semibold uppercase text-sm">
-            Ver Moto
+          <button className="w-full bg-[#ec7b15] text-white py-3 rounded-lg hover:bg-[#d66a0e] transition-colors font-bold uppercase text-sm tracking-wider shadow-md hover:shadow-lg min-h-[48px]">
+            Ver Detalles
           </button>
         </div>
       </LocalizedClientLink>

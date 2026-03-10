@@ -123,34 +123,33 @@ export const ProductDetailsHeader = ({
   const isAddToCartDisabled = !variantStock || !variantHasPrice || !hasAnyPrice || isVariantStockMaxLimitReached
 
   return (
-    <div className="border rounded-sm p-5" data-testid="product-details-header">
-      <div className="flex justify-between">
-        <div>
-          <h2 className="label-md text-secondary">
-            {/* {product?.brand || "No brand"} */}
-          </h2>
-          <h1 className="heading-lg text-primary" data-testid="product-title">{product.title}</h1>
-          <div className="mt-2 flex gap-2 items-center" data-testid="product-price-container">
+    <div className="border border-gray-200 rounded-xl p-6 lg:p-8 bg-white shadow-sm" data-testid="product-details-header">
+      <div className="flex justify-between items-start mb-4">
+        <div className="pr-4">
+          <h1 className="text-3xl lg:text-4xl font-black text-[#1b103c] leading-tight mb-2" data-testid="product-title">
+            {product.title}
+          </h1>
+          <div className="mt-4 flex gap-3 items-end" data-testid="product-price-container">
             {hasAnyPrice && variantPrice ? (
               <>
-                <span className="heading-md text-primary" data-testid="product-price-current">
+                <span className="text-4xl font-black tracking-tighter text-[#1b103c]" data-testid="product-price-current">
                   {variantPrice.calculated_price}
                 </span>
                 {variantPrice.calculated_price_number !==
                   variantPrice.original_price_number && (
-                    <span className="label-md text-secondary line-through" data-testid="product-price-original">
+                    <span className="text-lg text-gray-400 line-through mb-1 font-medium" data-testid="product-price-original">
                       {variantPrice.original_price}
                     </span>
                   )}
               </>
             ) : (
-              <span className="label-md text-secondary pt-2 pb-4" data-testid="product-price-unavailable">
-                Not available in your region
+              <span className="text-lg text-red-500 font-semibold pt-2 pb-4" data-testid="product-price-unavailable">
+                NO DISPONIBLE EN SU REGIÓN
               </span>
             )}
           </div>
         </div>
-        <div>
+        <div className="shrink-0 bg-gray-50 rounded-full p-2 hover:bg-gray-100 transition-colors">
           {/* Add to Wishlist */}
           <WishlistButton
             productId={product.id}
@@ -159,61 +158,66 @@ export const ProductDetailsHeader = ({
           />
         </div>
       </div>
-      <div className="w-full mb-6 text-sm text-gray-700 bg-gray-50 rounded-lg p-4 mt-4">
-        <table className="w-full text-left">
-          <tbody>
-            <tr className="border-b border-gray-200">
-              <td className="py-2 font-semibold">Año:</td>
-              <td className="py-2 text-right">{product?.options?.find(o => o.title?.toLowerCase() === 'año')?.values?.[0]?.value || '2024'}</td>
-            </tr>
-            <tr className="border-b border-gray-200">
-              <td className="py-2 font-semibold">Kilometraje:</td>
-              <td className="py-2 text-right">{product?.options?.find(o => o.title?.toLowerCase() === 'estado' || o.title?.toLowerCase() === 'kilometraje')?.values?.[0]?.value === 'Nueva' ? '0 km' : 'Usada'}</td>
-            </tr>
-            <tr className="border-b border-gray-200">
-              <td className="py-2 font-semibold">Cilindrada:</td>
-              <td className="py-2 text-right">{product?.options?.find(o => o.title?.toLowerCase() === 'cilindrada')?.values?.[0]?.value || 'Motor'}</td>
-            </tr>
-            <tr className="border-b border-gray-200">
-              <td className="py-2 font-semibold">Marca:</td>
-              <td className="py-2 text-right">{product?.options?.find(o => o.title?.toLowerCase() === 'marca')?.values?.[0]?.value || 'Glik Moto'}</td>
-            </tr>
-            <tr>
-              <td className="py-2 font-semibold">Papeles:</td>
-              <td className="py-2 text-right">✅ Al día</td>
-            </tr>
-          </tbody>
-        </table>
+
+      <div className="w-full mb-8 mt-6">
+        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-3">Especificaciones Principales</h3>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="bg-gray-50/80 border border-gray-100 rounded-lg p-3 flex flex-col items-center justify-center text-center">
+            <span className="text-xl mb-1">📅</span>
+            <span className="text-xs text-gray-500 uppercase font-semibold">Año</span>
+            <span className="text-sm font-bold text-[#1b103c]">{product?.options?.find(o => o.title?.toLowerCase() === 'año')?.values?.[0]?.value || '2024'}</span>
+          </div>
+          <div className="bg-gray-50/80 border border-gray-100 rounded-lg p-3 flex flex-col items-center justify-center text-center">
+            <span className="text-xl mb-1">🛣️</span>
+            <span className="text-xs text-gray-500 uppercase font-semibold">Estado</span>
+            <span className="text-sm font-bold text-[#1b103c]">{product?.options?.find(o => o.title?.toLowerCase() === 'estado' || o.title?.toLowerCase() === 'kilometraje')?.values?.[0]?.value === 'Nueva' ? '0 km' : 'Usada'}</span>
+          </div>
+          <div className="bg-gray-50/80 border border-gray-100 rounded-lg p-3 flex flex-col items-center justify-center text-center">
+            <span className="text-xl mb-1">🏍️</span>
+            <span className="text-xs text-gray-500 uppercase font-semibold">Cilindrada</span>
+            <span className="text-sm font-bold text-[#1b103c]">{product?.options?.find(o => o.title?.toLowerCase() === 'cilindrada')?.values?.[0]?.value || 'Motor'}</span>
+          </div>
+          <div className="bg-gray-50/80 border border-gray-100 rounded-lg p-3 flex flex-col items-center justify-center text-center">
+            <span className="text-xl mb-1">🏷️</span>
+            <span className="text-xs text-gray-500 uppercase font-semibold">Marca</span>
+            <span className="text-sm font-bold text-[#1b103c]">{product?.options?.find(o => o.title?.toLowerCase() === 'marca')?.values?.[0]?.value || 'Glik Moto'}</span>
+          </div>
+        </div>
       </div>
 
       {/* Product Variants */}
       {hasAnyPrice && (
-        <ProductVariants product={product} selectedVariant={selectedVariant} />
+        <div className="mb-6">
+          <ProductVariants product={product} selectedVariant={selectedVariant} />
+        </div>
       )}
+
       {/* Add to Cart */}
       <Button
         onClick={handleAddToCart}
         disabled={isAddToCartDisabled}
         loading={isAddingItem}
-        className="w-full bg-[#003087] text-white py-3 text-lg rounded-lg hover:bg-[#00286b] uppercase mb-4 flex justify-center"
+        className="w-full bg-[#ec7b15] text-white py-4 text-base font-bold rounded-xl hover:bg-[#d66a0e] uppercase mb-4 flex justify-center shadow-lg hover:shadow-xl transition-all h-[56px]"
         size="large"
         data-testid="product-add-to-cart-button"
       >
         {!hasAnyPrice
           ? "NO DISPONIBLE EN SU REGIÓN"
           : variantStock && variantHasPrice
-            ? "COMPRAR AHORA"
+            ? "SIMULAR CRÉDITO O COMPRAR"
             : "AGOTADO"}
       </Button>
-      {/* Seller message */}
 
+      {/* Seller message */}
       {user && product.seller && (
-        <Chat
-          user={user}
-          seller={product.seller}
-          buttonClassNames="w-full uppercase"
-          product={product}
-        />
+        <div className="mt-2">
+          <Chat
+            user={user}
+            seller={product.seller}
+            buttonClassNames="w-full uppercase font-bold text-sm h-[48px]"
+            product={product}
+          />
+        </div>
       )}
     </div>
   )
