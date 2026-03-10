@@ -160,7 +160,7 @@ export default async function Home({
       />
 
       <Hero
-        image="/images/hero/Image.jpg"
+        image="https://glik7.com/wp-content/uploads/2024/09/Punito-1.jpg"
         heading="Glik Motos - El marketplace de motos en cuotas"
         paragraph="Compra y vende motos con la seguridad de Glik como garante."
         buttons={[
