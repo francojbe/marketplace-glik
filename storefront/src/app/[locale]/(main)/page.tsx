@@ -1,12 +1,9 @@
-import {
   BannerSection,
   BlogSection,
   Hero,
-  HomeCategories,
   HomeProductSection,
-  ShopByStyleSection,
 } from "@/components/sections"
-import { CategoryNavigation } from "@/components/molecules"
+
 
 import type { Metadata } from "next"
 import { headers } from "next/headers"
@@ -175,15 +172,13 @@ export default async function Home({
         ]}
       />
 
-      <div className="px-4 lg:px-8 w-full -mt-16 relative z-20">
-        <CategoryNavigation />
-      </div>
+
 
       <div className="px-4 lg:px-8 w-full mt-4">
         <HomeProductSection heading="Motos en tendencia" locale={locale} home />
       </div>
       <BannerSection />
-      <ShopByStyleSection />
+
       <BlogSection />
     </main>
   )
