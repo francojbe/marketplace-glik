@@ -161,8 +161,8 @@ export default async function Home({
 
       <Hero
         image="/images/hero/Image.jpg"
-        heading="Muévete con Glik"
-        paragraph="Transformamos tu vida a través del arrendamiento a la movilidad de bajo costo. Encuentra tu moto ideal en cuotas fijas."
+        heading="Glik Motos - El marketplace de motos en cuotas"
+        paragraph="Compra y vende motos con la seguridad de Glik como garante."
         buttons={[
           { label: "Comprar ahora", path: "/categories" },
           {
