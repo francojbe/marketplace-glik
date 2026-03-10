@@ -54,12 +54,13 @@ export const Header = async ({ locale }: {
           />
         </div>
         <div className="flex lg:justify-center lg:w-1/3 items-center pl-4 lg:pl-0">
-          <LocalizedClientLink href="/" className="text-2xl font-bold" data-testid="header-logo-link">
+          <LocalizedClientLink href="/" className="text-2xl font-bold flex items-center justify-center" data-testid="header-logo-link">
             <Image
-              src="/Logo.svg"
-              width={126}
-              height={40}
-              alt="Logo"
+              src="/logo-glik.png"
+              width={160}
+              height={45}
+              alt="Glik Motos Logo"
+              className="object-contain"
               priority
             />
           </LocalizedClientLink>
