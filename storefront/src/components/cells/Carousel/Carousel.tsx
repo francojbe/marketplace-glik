@@ -57,7 +57,11 @@ export const CustomCarousel = ({
         ref={emblaRef}
       >
         <div className="embla__container flex">
-          {items.map((slide) => slide)}
+          {items.map((slide, i) => (
+            <div key={i} className="flex-[0_0_85%] sm:flex-[0_0_45%] md:flex-[0_0_30%] lg:flex-[0_0_22%] min-w-0 mr-4 pl-0">
+               {slide}
+            </div>
+          ))}
         </div>
 
         <div className="flex justify-between items-center mt-4 sm:hidden">

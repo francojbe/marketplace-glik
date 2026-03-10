@@ -35,7 +35,7 @@ export function Button({
   }
 
   const sizeClasses = {
-    small: "px-[16px] py-[8px]",
+    small: "px-[16px] py-[6px]",
     large: "px-[24px] py-[8px]",
   }
 

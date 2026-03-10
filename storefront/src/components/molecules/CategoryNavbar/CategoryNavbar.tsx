@@ -96,7 +96,7 @@ export const CategoryNavbar = ({
           href="/categories"
           onClick={handleClose}
           className={cn(
-            "label-md uppercase px-2 my-1 md:my-0 flex items-center justify-between md:flex-shrink-0 text-white hover:text-[#00d4aa] transition-colors font-bold"
+            "text-[12px] uppercase px-1 my-1 md:my-0 flex items-center justify-between md:flex-shrink-0 text-white hover:text-[#00d4aa] transition-colors font-bold"
           )}
           data-testid="category-link-all-products"
         >
@@ -120,7 +120,7 @@ export const CategoryNavbar = ({
                 href={categoryUrl}
                 onClick={handleClose}
                 className={cn(
-                  "label-md uppercase px-2 py-1 my-3 md:my-0 flex items-center justify-between md:whitespace-nowrap text-white hover:text-[#00d4aa] transition-colors relative z-10",
+                  "text-[12px] uppercase px-1 py-1 my-3 md:my-0 flex items-center justify-between md:whitespace-nowrap text-white hover:text-[#00d4aa] transition-colors relative z-10",
                   isActive && "md:border-b md:border-[#00d4aa] font-bold text-[#00d4aa]"
                 )}
                 data-testid={`category-link-${handle}`}

@@ -35,9 +35,9 @@ export const Accordion = ({
         onClick={openHandler}
         className="flex justify-between items-center cursor-pointer px-2"
       >
-        <h4 className="label-lg uppercase">{heading}</h4>
+        <h4 className="text-xs font-bold uppercase tracking-wider">{heading}</h4>
         <CollapseIcon
-          size={20}
+          size={16}
           className={cn("transition-all duration-300", isOpen && "rotate-180")}
         />
       </div>
@@ -49,7 +49,7 @@ export const Accordion = ({
           transition: "max-height 0.3s ease-in-out, opacity 0.2s ease-in-out",
         }}
       >
-        <div ref={contentRef} className="pt-4">
+        <div ref={contentRef} className="pt-2 pb-1">
           {children}
         </div>
       </div>

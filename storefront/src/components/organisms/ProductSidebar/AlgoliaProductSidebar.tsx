@@ -80,12 +80,13 @@ function ConditionFilter({ defaultOpen = true, items }: { defaultOpen?: boolean,
     <Accordion heading="Condition" defaultOpen={defaultOpen}>
       <ul className="px-4">
         {items && Object.entries(items).map(([ label, count ]) => (
-          <li key={label} className="mb-4">
+          <li key={label} className="mb-2">
             <FilterCheckboxOption
               checked={isFilterActive(label)}
               disabled={Boolean(!count)}
               onCheck={selectHandler}
               label={label}
+              amount={(count as any)} 
             />
           </li>
         ))}
@@ -104,12 +105,13 @@ function ColorFilter({ defaultOpen = true, items }: { defaultOpen?: boolean, ite
     <Accordion heading="Color" defaultOpen={defaultOpen}>
       <ul className="px-4">
         {items && Object.entries(items).map(([ label, count ]) => (
-          <li key={label} className="mb-4 flex items-center justify-between">
+          <li key={label} className="mb-2 flex items-center justify-between">
             <FilterCheckboxOption
               checked={isFilterActive(label)}
               disabled={Boolean(!count)}
               onCheck={selectHandler}
               label={label}
+              amount={(count as any)}
             />
             <div
               style={{ backgroundColor: label.toLowerCase() }}
@@ -136,12 +138,12 @@ function SizeFilter({ defaultOpen = true, items }: { defaultOpen?: boolean, item
     <Accordion heading="Size" defaultOpen={defaultOpen}>
       <ul className="grid grid-cols-4 mt-2 gap-2">
         {items && Object.entries(items).map(([label]) => (
-          <li key={label} className="mb-4">
+          <li key={label} className="mb-2">
             <Chip
               selected={isFilterActive(label)}
               onSelect={() => selectSizeHandler(label)}
               value={label}
-              className="w-full !justify-center !py-2 !font-normal"
+              className="w-full !justify-center !py-1 !text-xs !font-normal"
             />
           </li>
         ))}
@@ -177,7 +179,7 @@ function PriceFilter({ defaultOpen = true }: { defaultOpen?: boolean }) {
   }
   return (
     <Accordion heading="Price" defaultOpen={defaultOpen}>
-      <div className="flex gap-2 mb-4">
+      <div className="flex gap-2 mb-2 px-4">
         <form method="POST" onSubmit={updateMinPriceHandler}>
           <Input
             placeholder="Min"
@@ -226,7 +228,7 @@ function RatingFilter() {
         {filters.map(({ label }) => (
           <li
             key={label}
-            className={cn("mb-4 flex items-center gap-2 cursor-pointer")}
+            className={cn("mb-2 flex items-center gap-2 cursor-pointer")}
             onClick={() => selectHandler(label)}
           >
             <FilterCheckboxOption
