@@ -10,18 +10,15 @@ interface Props {
 const ProductListingProductsView = ({ products, viewMode = "grid" }: Props) => (
   <div className="w-full">
     <ul className={cn(
-      "flex flex-wrap gap-4",
-      viewMode === "list" && "flex-col"
+      "grid gap-4 w-full",
+      viewMode === "grid" ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1"
     )}>
       {products.map(
         (product) =>
            (
             <li 
               key={product.id} 
-              className={cn(
-                "w-full transition-all duration-300",
-                viewMode === "grid" ? "lg:w-[calc(33.33%-1rem)] xl:w-[calc(25%-1rem)] min-w-[220px]" : "w-full"
-              )}
+              className="w-full transition-all duration-300 transform hover:-translate-y-1"
             >
               <ProductCard
                 product={product}

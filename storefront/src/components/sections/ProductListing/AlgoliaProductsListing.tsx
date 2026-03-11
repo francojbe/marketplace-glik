@@ -133,6 +133,7 @@ const ProductsListing = ({
         <div className="w-[220px] flex-shrink-0 hidden md:block">
           <AlgoliaProductSidebar facets={facets} />
         </div>
+        <div className="flex-1 flex flex-col w-full">
           <div className="flex justify-between w-full items-center mb-4 bg-gray-50 p-2 rounded-sm border border-gray-100">
             <div className="label-md font-semibold text-gray-700">{`${count} motos encontradas`}</div>
             <div className="flex border border-gray-200 rounded-xs overflow-hidden">
@@ -165,10 +166,11 @@ const ProductsListing = ({
             <ProductListingProductsView products={products} viewMode={viewMode} />
           )}
 
-          <div className="mt-auto">
+          <div className="mt-auto pt-4">
             <ProductsPagination pages={pages} />
           </div>
         </div>
       </div>
+    </div>
   )
 }
