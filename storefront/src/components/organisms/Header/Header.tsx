@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { HttpTypes } from "@medusajs/types"
 
-import { CartDropdown, MobileNavbar, Navbar } from "@/components/cells"
+import { CartDropdown, MobileNavbar } from "@/components/cells"
 import { HeartIcon } from "@/icons"
 import { NavbarSearch } from "@/components/molecules"
 import { UserDropdown } from "@/components/cells/UserDropdown/UserDropdown"
@@ -115,7 +115,6 @@ export const Header = async ({ locale }: {
             </div>
           </div>
         </div>
-        <Navbar categories={categories} parentCategories={parentCategories} />
       </div>
     </header>
   )

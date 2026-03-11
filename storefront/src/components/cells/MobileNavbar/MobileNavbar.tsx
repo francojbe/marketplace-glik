@@ -5,10 +5,8 @@ import { useEffect, useState } from 'react';
 import { HttpTypes } from '@medusajs/types';
 
 import { IconButton } from '@/components/atoms';
-import { HeaderCategoryNavbar } from '@/components/molecules';
+import LocalizedClientLink from "@/components/molecules/LocalizedLink/LocalizedLink"
 import { CloseIcon, HamburgerMenuIcon } from '@/icons';
-
-import { MobileCategoryNavbar } from './components';
 
 export const MobileNavbar = ({
   categories,
@@ -64,19 +62,22 @@ export const MobileNavbar = ({
               data-testid="mobile-menu-close-button"
             />
           </div>
-          <div className="">
-            <HeaderCategoryNavbar
-              onClose={closeMenuHandler}
-              categories={categories}
-              parentCategories={parentCategories}
-            />
-            <div className="p-4">
-              <MobileCategoryNavbar
-                onClose={closeMenuHandler}
-                categories={categories}
-                parentCategories={parentCategories}
-              />
-            </div>
+          <div className="flex flex-col p-6 gap-6">
+            <LocalizedClientLink href="/compra" onClick={closeMenuHandler} className="text-xl font-medium transition-colors hover:text-[#00d4aa]">
+              Compra
+            </LocalizedClientLink>
+            <LocalizedClientLink href="/vende" onClick={closeMenuHandler} className="text-xl font-medium transition-colors hover:text-[#00d4aa]">
+              Vende
+            </LocalizedClientLink>
+            <LocalizedClientLink href="/servicios" onClick={closeMenuHandler} className="text-xl font-medium transition-colors hover:text-[#00d4aa]">
+              Servicios
+            </LocalizedClientLink>
+            <LocalizedClientLink href="/noticias" onClick={closeMenuHandler} className="text-xl font-medium transition-colors hover:text-[#00d4aa]">
+              Noticias
+            </LocalizedClientLink>
+            <LocalizedClientLink href="/ayuda" onClick={closeMenuHandler} className="text-xl font-medium transition-colors hover:text-[#00d4aa]">
+              Ayuda
+            </LocalizedClientLink>
           </div>
         </div>
       )}
