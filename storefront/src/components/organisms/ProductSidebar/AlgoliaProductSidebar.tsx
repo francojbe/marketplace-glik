@@ -16,14 +16,6 @@ export type FacetModel = {
   label: string
 }
 
-const filters = [
-  { label: "5", amount: 40 },
-  { label: "4", amount: 78 },
-  { label: "3", amount: 0 },
-  { label: "2", amount: 0 },
-  { label: "1", amount: 0 },
-]
-
 export const AlgoliaProductSidebar = ({ facets }: { facets: Record<string, FacetModel[]> }) => {
   const [isMobile, setIsMobile] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
@@ -41,10 +33,10 @@ export const AlgoliaProductSidebar = ({ facets }: { facets: Record<string, Facet
   return isMobile ? (
     <>
       <Button onClick={() => setIsOpen(true)} className="w-full uppercase mb-4">
-        Filters
+        Filtros
       </Button>
       {isOpen && (
-        <Modal heading="Filters" onClose={() => setIsOpen(false)}>
+        <Modal heading="Filtros" onClose={() => setIsOpen(false)}>
           <div className="px-4">
             <ProductListingActiveFilters />
             <PriceFilter
@@ -52,9 +44,10 @@ export const AlgoliaProductSidebar = ({ facets }: { facets: Record<string, Facet
                 allSearchParams.min_price || allSearchParams.max_price
               )}
             />
-            <SizeFilter items={facets["variants.size"]} defaultOpen={Boolean(allSearchParams.size)} />
-            <ColorFilter items={facets["variants.color"]} defaultOpen={Boolean(allSearchParams.color)} />
-            <ConditionFilter items={facets["variants.condition"]} defaultOpen={Boolean(allSearchParams.condition)} />
+            <BrandFilter items={facets["variants.marca"]} defaultOpen={Boolean(allSearchParams.marca)} />
+            <ModelFilter items={facets["variants.modelo"]} defaultOpen={Boolean(allSearchParams.modelo)} />
+            <YearFilter items={facets["variants.anio"]} defaultOpen={Boolean(allSearchParams.anio)} />
+            <FuelFilter items={facets["variants.combustible"]} defaultOpen={Boolean(allSearchParams.combustible)} />
           </div>
         </Modal>
       )}
@@ -62,22 +55,22 @@ export const AlgoliaProductSidebar = ({ facets }: { facets: Record<string, Facet
   ) : (
     <div>
       <PriceFilter />
-      <SizeFilter items={facets["variants.size"]} />
-      <ColorFilter items={facets["variants.color"]} />
-      <ConditionFilter items={facets["variants.condition"]} />
-      {/* <RatingFilter /> */}
+      <BrandFilter items={facets["variants.marca"]} />
+      <ModelFilter items={facets["variants.modelo"]} />
+      <YearFilter items={facets["variants.anio"]} />
+      <FuelFilter items={facets["variants.combustible"]} />
     </div>
   )
 }
 
-function ConditionFilter({ defaultOpen = true, items }: { defaultOpen?: boolean, items: FacetModel[]}) {
-  const { updateFilters, isFilterActive } = useFilters("condition")
+function BrandFilter({ defaultOpen = true, items }: { defaultOpen?: boolean, items: FacetModel[]}) {
+  const { updateFilters, isFilterActive } = useFilters("marca")
 
   const selectHandler = (option: string) => {
     updateFilters(option)
   }
   return (
-    <Accordion heading="Condition" defaultOpen={defaultOpen}>
+    <Accordion heading="Marca" defaultOpen={defaultOpen}>
       <ul className="px-4">
         {items && Object.entries(items).map(([ label, count ]) => (
           <li key={label} className="mb-2">
@@ -95,30 +88,23 @@ function ConditionFilter({ defaultOpen = true, items }: { defaultOpen?: boolean,
   )
 }
 
-function ColorFilter({ defaultOpen = true, items }: { defaultOpen?: boolean, items: FacetModel[] }) {
-  const { updateFilters, isFilterActive } = useFilters("color")
+function ModelFilter({ defaultOpen = true, items }: { defaultOpen?: boolean, items: FacetModel[]}) {
+  const { updateFilters, isFilterActive } = useFilters("modelo")
 
   const selectHandler = (option: string) => {
     updateFilters(option)
   }
   return (
-    <Accordion heading="Color" defaultOpen={defaultOpen}>
+    <Accordion heading="Modelo" defaultOpen={defaultOpen}>
       <ul className="px-4">
         {items && Object.entries(items).map(([ label, count ]) => (
-          <li key={label} className="mb-2 flex items-center justify-between">
+          <li key={label} className="mb-2">
             <FilterCheckboxOption
               checked={isFilterActive(label)}
               disabled={Boolean(!count)}
               onCheck={selectHandler}
               label={label}
-              amount={(count as any)}
-            />
-            <div
-              style={{ backgroundColor: label.toLowerCase() }}
-              className={cn(
-                "w-5 h-5 border border-primary rounded-xs",
-                Boolean(!label) && "opacity-30"
-              )}
+              amount={(count as any)} 
             />
           </li>
         ))}
@@ -127,23 +113,48 @@ function ColorFilter({ defaultOpen = true, items }: { defaultOpen?: boolean, ite
   )
 }
 
-function SizeFilter({ defaultOpen = true, items }: { defaultOpen?: boolean, items: FacetModel[] }) {
-  const { updateFilters, isFilterActive } = useFilters("size")
+function YearFilter({ defaultOpen = true, items }: { defaultOpen?: boolean, items: FacetModel[]}) {
+  const { updateFilters, isFilterActive } = useFilters("anio")
 
-  const selectSizeHandler = (size: string) => {
-    updateFilters(size)
+  const selectHandler = (option: string) => {
+    updateFilters(option)
   }
-
   return (
-    <Accordion heading="Size" defaultOpen={defaultOpen}>
-      <ul className="grid grid-cols-4 mt-2 gap-2">
-        {items && Object.entries(items).map(([label]) => (
+    <Accordion heading="Año" defaultOpen={defaultOpen}>
+      <ul className="px-4">
+        {items && Object.entries(items).map(([ label, count ]) => (
           <li key={label} className="mb-2">
-            <Chip
-              selected={isFilterActive(label)}
-              onSelect={() => selectSizeHandler(label)}
-              value={label}
-              className="w-full !justify-center !py-1 !text-xs !font-normal"
+            <FilterCheckboxOption
+              checked={isFilterActive(label)}
+              disabled={Boolean(!count)}
+              onCheck={selectHandler}
+              label={label}
+              amount={(count as any)} 
+            />
+          </li>
+        ))}
+      </ul>
+    </Accordion>
+  )
+}
+
+function FuelFilter({ defaultOpen = true, items }: { defaultOpen?: boolean, items: FacetModel[]}) {
+  const { updateFilters, isFilterActive } = useFilters("combustible")
+
+  const selectHandler = (option: string) => {
+    updateFilters(option)
+  }
+  return (
+    <Accordion heading="Combustible" defaultOpen={defaultOpen}>
+      <ul className="grid grid-cols-2 mt-2 gap-2 px-4">
+        {items && Object.entries(items).map(([label, count]) => (
+          <li key={label} className="mb-2">
+            <FilterCheckboxOption
+              checked={isFilterActive(label)}
+              disabled={Boolean(!count)}
+              onCheck={selectHandler}
+              label={label}
+              amount={(count as any)} 
             />
           </li>
         ))}
@@ -178,7 +189,7 @@ function PriceFilter({ defaultOpen = true }: { defaultOpen?: boolean }) {
     updateSearchParams("max_price", max)
   }
   return (
-    <Accordion heading="Price" defaultOpen={defaultOpen}>
+    <Accordion heading="Precio" defaultOpen={defaultOpen}>
       <div className="flex gap-2 mb-2 px-4">
         <form method="POST" onSubmit={updateMinPriceHandler}>
           <Input
@@ -211,34 +222,6 @@ function PriceFilter({ defaultOpen = true }: { defaultOpen?: boolean }) {
           <input type="submit" className="hidden" />
         </form>
       </div>
-    </Accordion>
-  )
-}
-
-function RatingFilter() {
-  const { updateFilters, isFilterActive } = useFilters("rating")
-
-  const selectHandler = (option: string) => {
-    updateFilters(option)
-  }
-
-  return (
-    <Accordion heading="Rating">
-      <ul className="px-4">
-        {filters.map(({ label }) => (
-          <li
-            key={label}
-            className={cn("mb-2 flex items-center gap-2 cursor-pointer")}
-            onClick={() => selectHandler(label)}
-          >
-            <FilterCheckboxOption
-              checked={isFilterActive(label)}
-              label={label}
-            />
-            <StarRating rate={+label} />
-          </li>
-        ))}
-      </ul>
     </Accordion>
   )
 }

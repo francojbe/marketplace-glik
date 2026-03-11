@@ -76,7 +76,23 @@ export const Header = async ({ locale }: {
             </LocalizedClientLink>
           </div>
 
-          <div className="flex-1" />
+          <div className="flex-1 hidden lg:flex items-center justify-center gap-8">
+            <LocalizedClientLink href="/compra" className="text-white hover:text-[#00d4aa] text-sm font-medium transition-colors">
+              Compra
+            </LocalizedClientLink>
+            <LocalizedClientLink href="/vende" className="text-white hover:text-[#00d4aa] text-sm font-medium transition-colors">
+              Vende
+            </LocalizedClientLink>
+            <LocalizedClientLink href="/servicios" className="text-white hover:text-[#00d4aa] text-sm font-medium transition-colors">
+              Servicios
+            </LocalizedClientLink>
+            <LocalizedClientLink href="/noticias" className="text-white hover:text-[#00d4aa] text-sm font-medium transition-colors">
+              Noticias
+            </LocalizedClientLink>
+            <LocalizedClientLink href="/ayuda" className="text-white hover:text-[#00d4aa] text-sm font-medium transition-colors">
+              Ayuda
+            </LocalizedClientLink>
+          </div>
 
           {/* ACTIONS - RIGHT */}
           <div className="flex items-center justify-end gap-2 lg:gap-4 shrink-0 w-[20%]" data-testid="header-actions">

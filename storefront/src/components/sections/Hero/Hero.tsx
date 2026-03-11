@@ -4,7 +4,7 @@ import React from "react"
 import Image from "next/image"
 import { ArrowRightIcon } from "@/icons"
 import LocalizedClientLink from "@/components/molecules/LocalizedLink/LocalizedLink"
-import { NavbarSearch } from "@/components/molecules"
+import { VehicleSearchForm } from "@/components/molecules/VehicleSearchForm/VehicleSearchForm"
 import { cn } from "@/lib/utils"
 
 type HeroProps = {
@@ -64,8 +64,8 @@ export const Hero = ({ image, heading, paragraph, buttons }: HeroProps) => {
             ))}
           </p>
 
-          <div className="w-full max-w-2xl mx-auto mb-6 animate-[fade-in-up_1.2s_ease-out]">
-             <NavbarSearch />
+          <div className="w-full mx-auto mb-6 animate-[fade-in-up_1.2s_ease-out]">
+             <VehicleSearchForm />
           </div>
 
           {buttons.length > 0 && (

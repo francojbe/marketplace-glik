@@ -26,10 +26,11 @@
       "seller.store_status",
       "filterOnly(supported_countries)",
       "searchable(title)",
-      "variants.color",
-      "variants.condition",
-      "variants.prices.currency_code",
-      "variants.size"
+      "variants.marca",
+      "variants.modelo",
+      "variants.anio",
+      "variants.combustible",
+      "variants.prices.currency_code"
     ],
     "attributesToSnippet": null,
     "attributesToHighlight": null,
@@ -56,16 +57,19 @@
     "renderingContent": {
       "facetOrdering": {
         "facets": {
-          "order": ["variants.color", "variants.size", "variants.condition"]
+          "order": ["variants.marca", "variants.modelo", "variants.anio", "variants.combustible"]
         },
         "values": {
-          "variants.color": {
+          "variants.marca": {
             "sortRemainingBy": "count"
           },
-          "variants.condition": {
+          "variants.modelo": {
             "sortRemainingBy": "count"
           },
-          "variants.size": {
+          "variants.anio": {
+            "sortRemainingBy": "count"
+          },
+          "variants.combustible": {
             "sortRemainingBy": "count"
           }
         }

@@ -94,12 +94,11 @@ export const ProductCard = ({
 
             <div className={cn(
               "flex flex-wrap gap-x-3 gap-y-1 text-[10px] lg:text-[11px] text-gray-500 font-medium mb-1 truncate",
-              isList ? "mt-1 opacity-80" : "hidden"
+              "mt-1 opacity-80"
             )}>
                <span className="flex items-center gap-1"><span className="opacity-50 text-base">📅</span> {product?.options?.find(o => o.title?.toLowerCase() === 'año')?.values?.[0]?.value || '2024'}</span>
-               <span className="flex items-center gap-1"><span className="opacity-50 text-base">🛣️</span> {product?.options?.find(o => o.title?.toLowerCase() === 'estado')?.values?.[0]?.value === 'Nueva' ? '0 km' : 'Usada'}</span>
-               <span className="flex items-center gap-1"><span className="opacity-50 text-base">🏍️</span> {product?.options?.find(o => o.title?.toLowerCase() === 'cilindrada')?.values?.[0]?.value || 'Cilindrada'}</span>
-               {isList && <span className="flex items-center gap-1"><span className="opacity-50 text-base">📍</span> Santiago</span>}
+               <span className="flex items-center gap-1"><span className="opacity-50 text-base">🛣️</span> {product?.options?.find(o => o.title?.toLowerCase() === 'estado')?.values?.[0]?.value === 'Nueva' ? '0 km' : '15,000 km'}</span>
+               <span className="flex items-center gap-1"><span className="opacity-50 text-base">📍</span> Santiago</span>
             </div>
 
             {!isList && (
