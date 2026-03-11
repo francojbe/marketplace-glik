@@ -63,6 +63,9 @@ module.exports = defineConfig({
               region: process.env.SUPABASE_S3_REGION,
               bucket: process.env.SUPABASE_S3_BUCKET,
               endpoint: process.env.SUPABASE_S3_ENDPOINT,
+              additional_client_config: {
+                forcePathStyle: true,
+              },
             },
           },
         ],
