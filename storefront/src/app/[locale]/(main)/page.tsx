@@ -1,3 +1,4 @@
+import {
   BannerSection,
   BlogSection,
   Hero,
