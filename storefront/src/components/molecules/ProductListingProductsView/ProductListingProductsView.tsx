@@ -10,8 +10,10 @@ interface Props {
 const ProductListingProductsView = ({ products, viewMode = "grid" }: Props) => (
   <div className="w-full">
     <ul className={cn(
-      "grid gap-4 w-full",
-      viewMode === "grid" ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1"
+      "w-full gap-4",
+      viewMode === "grid" 
+        ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2" 
+        : "flex flex-col"
     )}>
       {products.map(
         (product) =>
