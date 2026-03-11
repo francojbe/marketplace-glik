@@ -12,7 +12,7 @@ const ProductListingProductsView = ({ products, viewMode = "grid" }: Props) => (
     <ul className={cn(
       "w-full gap-4",
       viewMode === "grid" 
-        ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2" 
+        ? "grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2" 
         : "flex flex-col"
     )}>
       {products.map(
